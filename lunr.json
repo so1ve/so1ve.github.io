@@ -148,7 +148,7 @@
     },
     {
         "uri": "/p/Hugo-Python(伪)自动部署",
-        "content": "---\ntitle: \"Hugo-Python(伪)自动部署\"\ndate: 2020-03-16T09:08:23+08:00\ncategories: [\"Python\",\"Hugo\"]\ntags: [Hugo,Python,Git]\ndescription: \"Hugo自动部署\"\nslug: \"hugo-auto-deploy\"\ndraft: false\n---\n\n最近无聊就写了个Hugo自动部署的Python脚本。\n\n!--more--\n\n!/usr/bin/env python\n coding:utf-8\n\nfrom os import system\nfrom time import ctime\n\nsystem('start cmd /K \"cd /d D:/workspace/hugoblog&hugo&cd public&git add .&git commit -m \\\"Site updated: %s\\\"&git push -u origin master\"' % str(ctime()))\n\n假的自动，其实就是一次性执行所有部署命令。\n\n自动部署请参考Hugo-MemE/Hexo(真)自动推送部署至Netlify\n\n",
+        "content": "---\ntitle: \"Hugo-Python(伪)自动部署\"\ndate: 2020-03-16T09:08:23+08:00\ncategories: [\"Python\",\"Hugo\"]\ntags: [Hugo,Python,Git]\ndescription: \"Hugo自动部署\"\nslug: \"hugo-auto-deploy\"\ndraft: false\n---\n\n最近无聊就写了个Hugo自动部署的Python脚本。\n\n!--more--\n\n!/usr/bin/env python\n coding:utf-8\n\nfrom os import system\nfrom time import ctime\n\nsystem('start cmd /K \"cd /d D:/workspace/hugoblog&hugo&cd public&git add -A&git commit -m \\\"Site updated: %s\\\"&git push -u origin master\"' % str(ctime()))\n\n假的自动，其实就是一次性执行所有部署命令。\n\n自动部署请参考Hugo-MemE/Hexo(真)自动推送部署至Netlify\n\n",
         "tags": []
     },
     {
