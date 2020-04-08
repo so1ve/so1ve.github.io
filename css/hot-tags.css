@@ -1,0 +1,47 @@
+
+#main .tags .tag:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+#main .tag:not(body).is-danger {
+    background-color: #ff3860;
+    color: #fff;
+}
+
+#main .tag:not(body).is-warning {
+    background-color: #ffdd57;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#main .tag:not(body).is-success {
+    background-color: #23d160;
+    color: #fff;
+}
+
+#main .tags{
+    display: none;
+}
+
+.tags .tag {
+    margin-bottom: 0.5rem;
+}
+
+#main .tag:not(body) {
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    color: #4a4a4a;
+    display: inline-flex;
+    font-size: 0.75rem;
+    height: 2em;
+    justify-content: center;
+    line-height: 1.5;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    white-space: nowrap;
+}
+
+#main a {
+    cursor: pointer;
+    text-decoration: none;
+}

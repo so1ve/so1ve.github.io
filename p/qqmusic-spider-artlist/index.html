@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.68.3" /><meta name="theme-color" content="#fff" />
+
+    
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>从零开始写一个音乐爬虫-4：QQ音乐 | Ray&#39;s Blog</title>
+
+    <link rel="stylesheet" href="/css/meme.min.06e2e1e109dbb9b6eb73729c4329d174786e95bf5042252d2c64ee0461aead3c.css" integrity="sha256-BuLh4Qnbubbrc3KcQynRdHhulb9QQiUtLGTuBGGurTw=" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.loli.net/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.loli.net/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="Ray" />
+    
+    
+    <meta name="description" content="划了这么多天水，我终于回来了…… 毕竟课也是要上的。 最近终于抽出一些时间了，研究研究QQ音乐的爬虫。 我们随便打开一个歌单(https://y.qq.com/n/yqq/playlist/68097168……" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Ray&#39;s Blog" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Ray&#39;s Blog" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://raycoder.me/p/qqmusic-spider-artlist/" />
+
+
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2020-03-05T10:43:15+08:00",
+        "dateModified": "2020-04-08T09:22:22+08:00",
+        "url": "https://raycoder.me/p/qqmusic-spider-artlist/",
+        "headline": "从零开始写一个音乐爬虫-4：QQ音乐",
+        "description": "划了这么多天水，我终于回来了…… 毕竟课也是要上的。 最近终于抽出一些时间了，研究研究QQ音乐的爬虫。 我们随便打开一个歌单(https://y.qq.com/n/yqq/playlist/68097168……",
+        "inLanguage" : "zh-CN",
+        "articleSection": "p",
+        "wordCount":  2016 ,
+        "image": ["https://raycoder.me/post-images/1583376357108.jpg","https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130255.png","https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130506.png","https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130739.png","https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130803.png"],
+        "author": {
+            "@type": "Person",
+            "description": "夜晚再黑，也压不过雪的白。",
+            "email": "ray@raycoder.me",
+            "image": "https://raycoder.me/icons/ava.png",
+            "url": "https://raycoder.me/",
+            "name": "Ray"
+        },
+        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Ray's Blog",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://raycoder.me/favicon.ico"
+            },
+            "url": "https://raycoder.me/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://raycoder.me/"
+        }
+    }
+</script>
+
+    
+    
+
+
+
+
+
+<meta property="og:title" content="从零开始写一个音乐爬虫-4：QQ音乐" />
+<meta property="og:description" content="划了这么多天水，我终于回来了…… 毕竟课也是要上的。 最近终于抽出一些时间了，研究研究QQ音乐的爬虫。 我们随便打开一个歌单(https://y.qq.com/n/yqq/playlist/68097168……" />
+<meta property="og:url" content="https://raycoder.me/p/qqmusic-spider-artlist/" />
+<meta property="og:site_name" content="Ray&#39;s Blog" />
+<meta property="og:locale" content="zh" /><meta property="og:image" content="https://raycoder.me/post-images/1583376357108.jpg" />
+<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2020-03-05T10:43:15+08:00" />
+    <meta property="article:modified_time" content="2020-04-08T09:22:22+08:00" />
+    
+    <meta property="article:section" content="p" />
+
+
+        <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+
+        
+
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157970228-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-157970228-1');
+    </script>
+
+
+
+
+    <link rel="stylesheet" href="/css/insight.css">
+
+
+<div class="loading"><div id="loader"></div></div>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?458eb53f35b66573079d5bbac284a244";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script>
+(function(){
+	var bp = document.createElement('script');
+	var curProtocol = window.location.protocol.split(':')[0];
+	if (curProtocol === 'https'){
+	 bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+	}
+	else{
+	bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	}
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<link rel="stylesheet" href="//static.raycoder.me/css/iconfont/iconfont.css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/main-banner.css">
+<link rel="stylesheet" href="/css/hot-tags.css">
+
+
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header" data-scroll-header>
+        
+            <div class="header-wrapper">
+                <div class="header-inner">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">Ray&#39;s Blog</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item"><a href="/archives/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon "><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"/></svg><span class="menu-item-name">归档</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/learn/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="icon "><path d="M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8-.6 16.1-4.2 28.5-11 36.9-15.4 19.2-49.3 22.4-85.2 25.7-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3 0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6 3.1-5.2 7.8-9.8 14.9-13.4 16.2-8.2 40.4-10.4 66.1-12.8 42.2-3.9 90-8.4 118.2-43.4 14-17.4 21.1-39.8 21.6-67.9 31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16z"/></svg><span class="menu-item-name">体系</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tools/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon "><path d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"/></svg><span class="menu-item-name">工具</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/writes/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon " class="icon "><path d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z"/></svg><span class="menu-item-name">乱写一通</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/links/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="icon "><path d="M372 64h-79c-10.7 0-16 12.9-8.5 20.5l16.9 16.9-80.7 80.7c-22.2-14-48.5-22.1-76.7-22.1C64.5 160 0 224.5 0 304s64.5 144 144 144 144-64.5 144-144c0-28.2-8.1-54.5-22.1-76.7l80.7-80.7 16.9 16.9c7.6 7.6 20.5 2.2 20.5-8.5V76c0-6.6-5.4-12-12-12zM144 384c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"/></svg><span class="menu-item-name">后♂宫</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon "><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg><span class="menu-item-name">关于</span></a>
+                </li>
+            
+        
+            
+                
+            
+        
+		
+    </ul>
+</nav>
+
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        <article class="content post" data-align="justify" data-type="p" data-toc-num="true">
+
+            <h1 class="post-title">从零开始写一个音乐爬虫-4：QQ音乐</h1>
+
+            
+
+            
+                
+            
+
+            
+                
+
+<div class="post-meta">
+    
+        
+        <time datetime="2020-03-05T10:43:15+08:00" class="post-meta-item published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2020.3.5</time>
+    
+    
+        
+        <time datetime="2020-04-08T09:22:22+08:00" class="post-meta-item modified"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2020.4.8</time>
+    
+    
+    
+        
+        
+        
+            
+                
+                <span class="post-meta-item category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>&nbsp;<a href="/categories/python/" class="category-link">Python</a>/<a href="/categories/%E7%88%AC%E8%99%AB/" class="category-link">爬虫</a></span>
+            
+        
+    
+    
+        
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;2016</span>
+    
+    
+        
+        <span class="post-meta-item reading-time"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;5&nbsp;分钟</span>
+    
+    
+</div>
+            
+
+            
+                <nav class="contents"></nav><div class="post-body"><p style="text-indent:0"><span class="drop-cap">划</span>了这么多天水，我终于回来了……
+<img src="https://raycoder.me/post-images/1583376357108.jpg" alt="">
+毕竟课也是要上的。
+最近终于抽出一些时间了，研究研究QQ音乐的爬虫。
+我们随便打开一个歌单(<a href="/goto/?url=aHR0cHM6Ly95LnFxLmNvbS9uL3lxcS9wbGF5bGlzdC82ODA5NzE2ODgzLmh0bWw=" target="_blank" rel="noopener">https://y.qq.com/n/yqq/playlist/6809716883.html</a>)，登录自己的QQ：
+<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130255.png" alt="https://y.qq.com/n/yqq/playlist/6809716883.html"><span class="caption">◎ https://y.qq.com/n/yqq/playlist/6809716883.html</span>
+？QQ音乐竟然还对网页端做限制！<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130506.png" alt="">
+根据我多年的前(摸)端(爬)开(滚)发(打)经验，这种网站一定是通过<code>JS</code>做限制，并且在浏览器的<code>Network</code>中一定会有相关的数据。
+我们先打开一个音乐链接(<a href="/goto/?url=aHR0cHM6Ly95LnFxLmNvbS9uL3lxcS9zb25nLzAwNFdLeDlXMEU3c2tqLmh0bWw=" target="_blank" rel="noopener">https://y.qq.com/n/yqq/song/004WKx9W0E7skj.html</a> ==&gt; 播放)：
+<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130739.png" alt="">
+发现所有的音乐最后都指向<a href="/goto/?url=aHR0cHM6Ly95LnFxLmNvbS9wb3J0YWwvcGxheWVyLmh0bWw=" target="_blank" rel="noopener">https://y.qq.com/portal/player.html</a>这个网址。所以我们可以做如下判断：这个东西是通过传<code>Cookie</code>来播放音乐的，所以它的<code>Network</code>中绝对会有相应的<code>音乐文件</code>    。
+果不其然，里边有一个如下的链接：
+<code>https://isure.stream.qqmusic.qq.com/C400003jblv923cckE.m4a?guid=2092345306&amp;vkey=0C2C0214E13FDAA60DF4560C8CAFB591C5C8D31854F25B79A59E07FE292AFF133E2B053C4A96C190ACA1582BD0476710ECCF87F6826D15A2&amp;uin=4354&amp;fromtag=66</code>
+经过观察，发现它的格式如下：
+<code>https://isure.stream.qqmusic.qq.com/C400&lt;MID&gt;.m4a?guid=&lt;GUID&gt;&amp;vkey=&lt;VKEY&gt;&amp;uin=4354&amp;fromtag=66</code>，<code>uin</code>和<code>fromtag</code>是不变的。
+所以我们再返回歌单页，打开控制台，找到了如下文件：
+<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130803.png" alt="">
+好的，我们通过观察，发现这是一个格式类似于如下的文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="err">&#39;accessed_favbase&#39;:</span> <span class="err">1,</span>
+ <span class="err">&#39;accessed_plaza_cache&#39;:</span> <span class="err">0,</span>
+ <span class="err">&#39;cdlist&#39;:</span> <span class="err">[{&#39;album_pic_mid&#39;:</span> <span class="err">&#39;&#39;,</span>
+             <span class="err">&#39;buynum&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;cmtnum&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;coveradurl&#39;:</span> <span class="err">&#39;&#39;,</span>
+             <span class="err">&#39;ctime&#39;:</span> <span class="err">1552789122,</span>
+             <span class="err">&#39;cur_song_num&#39;:</span> <span class="err">70,</span>
+             <span class="err">&#39;desc&#39;:</span> <span class="err">&#39;YouTuber阿神背景音乐，Bob们快来听听吧！阿神加油，我们会永远支持你的！&#39;,</span>
+             <span class="err">&#39;dir_pic_url2&#39;:</span> <span class="err">&#39;&#39;,</span>
+             <span class="err">&#39;dir_show&#39;:</span> <span class="err">1,</span>
+             <span class="err">&#39;dirid&#39;:</span> <span class="err">2,</span>
+             <span class="err">&#39;dissid&#39;:</span> <span class="err">6809716,</span>
+             <span class="err">&#39;dissname&#39;:</span> <span class="err">&#39;阿神常用BGM&#39;,</span>
+             <span class="err">&#39;disstid&#39;:</span> <span class="err">&#39;6809716883&#39;,</span>
+             <span class="err">&#39;disstype&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;encrypt_uin&#39;:</span> <span class="err">&#39;oK6kowEAoK4z7eSiNevzoivlov**&#39;,</span>
+             <span class="err">&#39;headurl&#39;:</span> <span class="err">&#39;http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK1iaxx2AdrAQDGlibrNZicyaYspzibEWTeCIHOGHPpMOau3MFofE1e5oJwEGHTrBUzrLegbPYiaNOicPaQ/132&#39;,</span>
+             <span class="err">&#39;ifpicurl&#39;:</span> <span class="err">&#39;&#39;,</span>
+             <span class="err">&#39;isAd&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;isdj&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;isvip&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;login&#39;:</span> <span class="err">&#39;oK-57KEA7w4ion**&#39;,</span>
+             <span class="err">&#39;logo&#39;:</span> <span class="err">&#39;http://qpic.y.qq.com/music_cover/huYTu7R6ZfqKlvicEsOAPc5D6PTtzz0caVENpSkmJnF4IbCCI7iaWqnz7SQXcf474k/300?n=1&#39;,</span>
+             <span class="err">&#39;mtime&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;nick&#39;:</span> <span class="err">&#39;Max&#39;,</span>
+             <span class="err">&#39;nickname&#39;:</span> <span class="err">&#39;Max&#39;,</span>
+             <span class="err">&#39;owndir&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;pic_dpi&#39;:</span> <span class="err">300,</span>
+             <span class="err">&#39;pic_mid&#39;:</span> <span class="err">&#39;&#39;,</span>
+             <span class="err">&#39;scoreavage&#39;:</span> <span class="err">&#39;0.0&#39;,</span>
+             <span class="err">&#39;scoreusercount&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;singerid&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;singermid&#39;:</span> <span class="err">&#39;&#39;,</span>
+             <span class="err">&#39;song_begin&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;song_update_num&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;song_update_time&#39;:</span> <span class="err">0,</span>
+             <span class="err">&#39;songids&#39;:</span> <span class="err">&#39;108412441,108412318,236593788,212656442,204897711,203546728,101688454,201272163,215240933,201272176,105055346,125803989,201287859,4998977,220183309,1875424,200448238,107600922,202985843,201272151,102994348,4941179,200980117,102179620,108412364,1144219,108920995,4799526,200316483,125586926,108547678,214531352,214483351,108412363,225361408,201272168,201272164,213407792,215240934,108031940,109296153,102215437,203021286,104769082,201272157,200980118,213407791,201272160,200980114,201272153,200980111,201438505,201272165,109996034,202916713,202617948,109296152,201422059,200604508,203836723,9072513,201255271,201287877,102222132,105389125,108412359,215360418,109225063,102206145,219032454&#39;,</span>
+             <span class="err">&#39;songlist&#39;:</span> <span class="err">[{&#39;action&#39;:</span> <span class="err">{&#39;alert&#39;:</span> <span class="err">2,</span>
+                                      <span class="err">&#39;icons&#39;:</span> <span class="err">8535932,</span>
+                                      <span class="err">&#39;msgid&#39;:</span> <span class="err">14,</span>
+                                      <span class="err">&#39;msgpay&#39;:</span> <span class="err">6,</span>
+                                      <span class="err">&#39;switch&#39;:</span> <span class="err">17409795</span><span class="p">}</span><span class="err">,</span>
+                           <span class="err">&#39;album&#39;:</span> <span class="p">{</span><span class="err">&#39;id&#39;:</span> <span class="err">1594129,</span>
+                                     <span class="err">&#39;mid&#39;:</span> <span class="err">&#39;001j2IHy2CkIaz&#39;,</span>
+                                     <span class="err">&#39;name&#39;:</span> <span class="err">&#39;UNDERTALE</span> <span class="err">Soundtrack&#39;,</span>
+                                     <span class="err">&#39;pmid&#39;:</span> <span class="err">&#39;001j2IHy2CkIaz_2&#39;,</span>
+                                     <span class="err">&#39;subtitle&#39;:</span> <span class="err">&#39;&#39;,</span>
+                                     <span class="err">&#39;title&#39;:</span> <span class="err">&#39;UNDERTALE</span> <span class="err">Soundtrack&#39;</span><span class="p">}</span><span class="err">,</span>
+                           <span class="err">&#39;file&#39;:</span> <span class="p">{</span><span class="err">&#39;b_30s&#39;:</span> <span class="err">0,</span>
+                                    <span class="err">&#39;e_30s&#39;:</span> <span class="err">0,</span>
+                                    <span class="err">&#39;media_mid&#39;:</span> <span class="err">&#39;003jblv923cckE&#39;,</span>
+                                    <span class="err">&#39;size_128&#39;:</span> <span class="err">724989,</span>
+                                    <span class="err">&#39;size_128mp3&#39;:</span> <span class="err">724989,</span>
+                                    <span class="err">&#39;size_192aac&#39;:</span> <span class="err">1046138,</span>
+                                    <span class="err">&#39;size_192ogg&#39;:</span> <span class="err">807221,</span>
+                                    <span class="err">&#39;size_24aac&#39;:</span> <span class="err">0,</span>
+                                    <span class="err">&#39;size_320&#39;:</span> <span class="err">1812101,</span>
+                                    <span class="err">&#39;size_320mp3&#39;:</span> <span class="err">1812101,</span>
+                                    <span class="err">&#39;size_48aac&#39;:</span> <span class="err">264852,</span>
+                                    <span class="err">&#39;size_96aac&#39;:</span> <span class="err">523498,</span>
+                                    <span class="err">&#39;size_aac&#39;:</span> <span class="err">264852,</span>
+                                    <span class="err">&#39;size_ape&#39;:</span> <span class="err">0,</span>
+                                    <span class="err">&#39;size_dts&#39;:</span> <span class="err">0,</span>
+                                    <span class="err">&#39;size_flac&#39;:</span> <span class="err">2120013,</span>
+                                    <span class="err">&#39;size_ogg&#39;:</span> <span class="err">807221,</span>
+                                    <span class="err">&#39;size_try&#39;:</span> <span class="err">0,</span>
+                                    <span class="err">&#39;try_begin&#39;:</span> <span class="err">0,</span>
+                                    <span class="err">&#39;try_end&#39;:</span> <span class="err">0</span><span class="p">}</span><span class="err">,</span>
+                           <span class="err">&#39;fnote&#39;:</span> <span class="mi">4009</span><span class="err">,</span>
+                           <span class="err">&#39;genre&#39;:</span> <span class="mi">37</span><span class="err">,</span>
+                           <span class="err">&#39;id&#39;:</span> <span class="mi">108412441</span><span class="err">,</span>
+                           <span class="err">&#39;index_album&#39;:</span> <span class="mi">44</span><span class="err">,</span>
+                           <span class="err">&#39;index_cd&#39;:</span> <span class="mi">0</span><span class="err">,</span>
+                           <span class="err">&#39;interval&#39;:</span> <span class="mi">45</span><span class="err">,</span>
+                           <span class="err">&#39;isonly&#39;:</span> <span class="mi">0</span><span class="err">,</span>
+                           <span class="err">&#39;ksong&#39;:</span> <span class="p">{</span><span class="err">&#39;id&#39;:</span> <span class="err">0,</span> <span class="err">&#39;mid&#39;:</span> <span class="err">&#39;&#39;</span><span class="p">}</span><span class="err">,</span>
+                           <span class="err">&#39;language&#39;:</span> <span class="mi">9</span><span class="err">,</span>
+                           <span class="err">&#39;mid&#39;:</span> <span class="err">&#39;</span><span class="mi">004</span><span class="err">WKx</span><span class="mi">9</span><span class="err">W</span><span class="mf">0E7</span><span class="err">skj&#39;,</span>
+                           <span class="err">&#39;mv&#39;:</span> <span class="p">{</span><span class="err">&#39;id&#39;:</span> <span class="err">0,</span> <span class="err">&#39;vid&#39;:</span> <span class="err">&#39;&#39;</span><span class="p">}</span><span class="err">,</span>
+                           <span class="err">&#39;name&#39;:</span> <span class="err">&#39;Tem</span> <span class="err">Shop&#39;,</span>
+                           <span class="err">&#39;ov&#39;:</span> <span class="mi">0</span><span class="err">,</span>
+                           <span class="err">&#39;pay&#39;:</span> <span class="p">{</span><span class="err">&#39;pay_down&#39;:</span> <span class="err">1,</span>
+                                   <span class="err">&#39;pay_month&#39;:</span> <span class="err">1,</span>
+                                   <span class="err">&#39;pay_play&#39;:</span> <span class="err">0,</span>
+                                   <span class="err">&#39;pay_status&#39;:</span> <span class="err">0,</span>
+                                   <span class="err">&#39;price_album&#39;:</span> <span class="err">0,</span>
+                                   <span class="err">&#39;price_track&#39;:</span> <span class="err">200,</span>
+                                   <span class="err">&#39;time_free&#39;:</span> <span class="err">0</span><span class="p">}</span><span class="err">,</span>
+                           <span class="err">&#39;sa&#39;:</span> <span class="mi">16</span><span class="err">,</span>
+                           <span class="err">&#39;singer&#39;:</span> <span class="p">[{</span><span class="err">&#39;id&#39;:</span> <span class="err">1204192,</span>
+                                       <span class="err">&#39;mid&#39;:</span> <span class="err">&#39;0045aGTp3XRXLD&#39;,</span>
+                                       <span class="err">&#39;name&#39;:</span> <span class="err">&#39;Toby</span> <span class="err">Fox&#39;,</span>
+                                       <span class="err">&#39;title&#39;:</span> <span class="err">&#39;Toby</span> <span class="err">Fox&#39;</span><span class="p">}]</span><span class="err">,</span>
+                           <span class="err">&#39;songtype&#39;:</span> <span class="mi">13</span><span class="err">,</span>
+                           <span class="err">&#39;status&#39;:</span> <span class="mi">0</span><span class="err">,</span>
+                           <span class="err">&#39;subtitle&#39;:</span> <span class="err">&#39;&#39;,</span>
+                           <span class="err">&#39;tid&#39;:</span> <span class="mi">0</span><span class="err">,</span>
+                           <span class="err">&#39;time_public&#39;:</span> <span class="err">&#39;</span><span class="mi">2015-09-15</span><span class="err">&#39;,</span>
+                           <span class="err">&#39;title&#39;:</span> <span class="err">&#39;Tem</span> <span class="err">Shop&#39;,</span>
+                           <span class="err">&#39;type&#39;:</span> <span class="mi">0</span><span class="err">,</span>
+                           <span class="err">&#39;url&#39;:</span> <span class="err">&#39;&#39;,</span>
+                           <span class="err">&#39;volume&#39;:</span> <span class="p">{</span><span class="err">&#39;gain&#39;:</span> <span class="err">0.0,</span> <span class="err">&#39;lra&#39;:</span> <span class="err">0.0,</span> <span class="err">&#39;peak&#39;:</span> <span class="err">0.0</span><span class="p">}</span><span class="err">},</span>
+             <span class="err">&#39;songnum&#39;:</span> <span class="mi">70</span><span class="err">,</span>
+             <span class="err">&#39;songtypes&#39;:</span> <span class="err">&#39;</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">,</span><span class="mi">13</span><span class="err">&#39;,</span>
+             <span class="err">&#39;tags&#39;:</span> <span class="p">[{</span><span class="err">&#39;id&#39;:</span> <span class="err">199,</span> <span class="err">&#39;name&#39;:</span> <span class="err">&#39;背景音乐&#39;,</span> <span class="err">&#39;pid&#39;:</span> <span class="err">199</span><span class="p">},</span>
+                      <span class="p">{</span><span class="err">&#39;id&#39;:</span> <span class="err">117,</span> <span class="err">&#39;name&#39;:</span> <span class="err">&#39;快乐&#39;,</span> <span class="err">&#39;pid&#39;:</span> <span class="err">117</span><span class="p">},</span>
+                      <span class="p">{</span><span class="err">&#39;id&#39;:</span> <span class="err">116,</span> <span class="err">&#39;name&#39;:</span> <span class="err">&#39;治愈&#39;,</span> <span class="err">&#39;pid&#39;:</span> <span class="err">116</span><span class="p">}]</span><span class="err">,</span>
+             <span class="err">&#39;total_song_num&#39;:</span> <span class="mi">70</span><span class="err">,</span>
+             <span class="err">&#39;type&#39;:</span> <span class="mi">0</span><span class="err">,</span>
+             <span class="err">&#39;uin&#39;:</span> <span class="err">&#39;oK</span><span class="mi">6</span><span class="err">kowEAoK</span><span class="mi">4</span><span class="err">z</span><span class="mi">7</span><span class="err">eSiNevzoivlov**&#39;,</span>
+             <span class="err">&#39;visitnum&#39;:</span> <span class="mi">170366</span><span class="err">}],</span>
+ <span class="err">&#39;cdnum&#39;:</span> <span class="mi">1</span><span class="err">,</span>
+ <span class="err">&#39;code&#39;:</span> <span class="mi">0</span><span class="err">,</span>
+ <span class="err">&#39;login&#39;:</span> <span class="err">&#39;oK</span><span class="mi">-57</span><span class="err">KEA</span><span class="mi">7</span><span class="err">w</span><span class="mi">4</span><span class="err">ion**&#39;,</span>
+ <span class="err">&#39;realcdnum&#39;:</span> <span class="mi">1</span><span class="err">,</span>
+ <span class="err">&#39;subcode&#39;:</span> <span class="mi">0</span><span class="err">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>很容易看出，里面有我们所需的<code>&lt;MID&gt;</code>。但是<code>&lt;VKEY&gt;</code>并没有出现。所以，我们必须换一种思路了。
+查找了网络上的资料，发现有一个音乐信息外链：
+<code>https://u.y.qq.com/cgi-bin/musicu.fcg?format=json&amp;data=%7B%22req_0%22%3A%7B%22module%22%3A%22vkey.GetVkeyServer%22%2C%22method%22%3A%22CgiGetVkey%22%2C%22param%22%3A%7B%22guid%22%3A%22358840384%22%2C%22songmid%22%3A%5B%22&lt;MID&gt;%22%5D%2C%22songtype%22%3A%5B0%5D%2C%22uin%22%3A%221443481947%22%2C%22loginflag%22%3A1%2C%22platform%22%3A%2220%22%7D%7D%2C%22comm%22%3A%7B%22uin%22%3A%2218585073516%22%2C%22format%22%3A%22json%22%2C%22ct%22%3A24%2C%22cv%22%3A0%7D%7D</code>
+这个是经过<code>URL编码</code>的，解密后结果如下：
+<code>https://u.y.qq.com/cgi-bin/musicu.fcg?format=json&amp;data={&quot;req_0&quot;:{&quot;module&quot;:&quot;vkey.GetVkeyServer&quot;,&quot;method&quot;:&quot;CgiGetVkey&quot;,&quot;param&quot;:{&quot;guid&quot;:&quot;358840384&quot;,&quot;songmid&quot;:[&quot;&lt;MID&gt;&quot;],&quot;songtype&quot;:[0],&quot;uin&quot;:&quot;1443481947&quot;,&quot;loginflag&quot;:1,&quot;platform&quot;:&quot;20&quot;}},&quot;comm&quot;:{&quot;uin&quot;:&quot;18585073516&quot;,&quot;format&quot;:&quot;json&quot;,&quot;ct&quot;:24,&quot;cv&quot;:0}}</code>
+好的，看来我们只需要这个<code>&lt;MID&gt;</code>即可。
+我们在上面的步骤已经获得了<code>&lt;MID&gt;</code>，把它放进那个URL，会找到一个数据文件。如下(链接：<a href="/goto/?url=aHR0cHM6Ly91LnkucXEuY29tL2NnaS1iaW4vbXVzaWN1LmZjZz9mb3JtYXQ9anNvbiZhbXA7ZGF0YT0lN0IlMjJyZXFfMCUyMiUzQSU3QiUyMm1vZHVsZSUyMiUzQSUyMnZrZXkuR2V0VmtleVNlcnZlciUyMiUyQyUyMm1ldGhvZCUyMiUzQSUyMkNnaUdldFZrZXklMjIlMkMlMjJwYXJhbSUyMiUzQSU3QiUyMmd1aWQlMjIlM0ElMjIzNTg4NDAzODQlMjIlMkMlMjJzb25nbWlkJTIyJTNBJTVCJTIyMDA0V0t4OVcwRTdza2olMjIlNUQlMkMlMjJzb25ndHlwZSUyMiUzQSU1QjAlNUQlMkMlMjJ1aW4lMjIlM0ElMjIxNDQzNDgxOTQ3JTIyJTJDJTIybG9naW5mbGFnJTIyJTNBMSUyQyUyMnBsYXRmb3JtJTIyJTNBJTIyMjAlMjIlN0QlN0QlMkMlMjJjb21tJTIyJTNBJTdCJTIydWluJTIyJTNBJTIyMTg1ODUwNzM1MTYlMjIlMkMlMjJmb3JtYXQlMjIlM0ElMjJqc29uJTIyJTJDJTIyY3QlMjIlM0EyNCUyQyUyMmN2JTIyJTNBMCU3RCU3RA==" target="_blank" rel="noopener">https://u.y.qq.com/cgi-bin/musicu.fcg?format=json&amp;data=%7B%22req_0%22%3A%7B%22module%22%3A%22vkey.GetVkeyServer%22%2C%22method%22%3A%22CgiGetVkey%22%2C%22param%22%3A%7B%22guid%22%3A%22358840384%22%2C%22songmid%22%3A%5B%22004WKx9W0E7skj%22%5D%2C%22songtype%22%3A%5B0%5D%2C%22uin%22%3A%221443481947%22%2C%22loginflag%22%3A1%2C%22platform%22%3A%2220%22%7D%7D%2C%22comm%22%3A%7B%22uin%22%3A%2218585073516%22%2C%22format%22%3A%22json%22%2C%22ct%22%3A24%2C%22cv%22%3A0%7D%7D</a>)：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;code&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;ts&#34;</span><span class="p">:</span><span class="mi">1583379252481</span><span class="p">,</span><span class="nt">&#34;req_0&#34;</span><span class="p">:{</span><span class="nt">&#34;code&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&#34;data&#34;</span><span class="p">:{</span> <span class="nt">&#34;expiration&#34;</span><span class="p">:</span> <span class="mi">80400</span><span class="p">,</span> <span class="nt">&#34;login_key&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;midurlinfo&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nt">&#34;common_downfromtag&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;errtype&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;filename&#34;</span><span class="p">:</span> <span class="s2">&#34;C400003jblv923cckE.m4a&#34;</span><span class="p">,</span> <span class="nt">&#34;flowfromtag&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;flowurl&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;hisbuy&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;hisdown&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;isbuy&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;isonly&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;onecan&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;opi128kurl&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;opi192koggurl&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;opi192kurl&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;opi30surl&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;opi48kurl&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;opi96kurl&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;opiflackurl&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;p2pfromtag&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;pdl&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;pneed&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;pneedbuy&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;premain&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;purl&#34;</span><span class="p">:</span> <span class="s2">&#34;C400003jblv923cckE.m4a?guid=358840384&amp;vkey=9B9B50B3B25F0A5B339075E830EDE2E10FDC429A412FD272C65C2C0BA96846C98CF95F046C4B6E76BB16191F791104AB1B949E0C5168C3D0&amp;uin=0&amp;fromtag=66&#34;</span><span class="p">,</span> <span class="nt">&#34;qmdlfromtag&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;result&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;songmid&#34;</span><span class="p">:</span> <span class="s2">&#34;004WKx9W0E7skj&#34;</span><span class="p">,</span> <span class="nt">&#34;tips&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;uiAlert&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;vip_downfromtag&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;vkey&#34;</span><span class="p">:</span> <span class="s2">&#34;9B9B50B3B25F0A5B339075E830EDE2E10FDC429A412FD272C65C2C0BA96846C98CF95F046C4B6E76BB16191F791104AB1B949E0C5168C3D0&#34;</span><span class="p">,</span> <span class="nt">&#34;wififromtag&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;wifiurl&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span> <span class="p">}</span> <span class="p">],</span> <span class="nt">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;&lt;IP&gt;&#34;</span><span class="p">,</span> <span class="nt">&#34;retcode&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;servercheck&#34;</span><span class="p">:</span> <span class="s2">&#34;0502f67d8cf451662c4b46417d571295&#34;</span><span class="p">,</span> <span class="nt">&#34;sip&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;http:\/\/ws.stream.qqmusic.qq.com\/&#34;</span><span class="p">,</span> <span class="s2">&#34;http:\/\/isure.stream.qqmusic.qq.com\/&#34;</span> <span class="p">],</span> <span class="nt">&#34;testfile2g&#34;</span><span class="p">:</span> <span class="s2">&#34;C400003mAan70zUy5O.m4a?guid=358840384&amp;vkey=62F3CE198C73F66E7207E03BFB4F4C29BC086BF77E55DDC7C81ECEB156B8736E26F5B8360E5C63E0B6ADAB89779732648AF943136A70DC05&amp;uin=&amp;fromtag=3&#34;</span><span class="p">,</span> <span class="nt">&#34;testfilewifi&#34;</span><span class="p">:</span> <span class="s2">&#34;C400003mAan70zUy5O.m4a?guid=358840384&amp;vkey=62F3CE198C73F66E7207E03BFB4F4C29BC086BF77E55DDC7C81ECEB156B8736E26F5B8360E5C63E0B6ADAB89779732648AF943136A70DC05&amp;uin=&amp;fromtag=3&#34;</span><span class="p">,</span> <span class="nt">&#34;thirdip&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span> <span class="p">],</span> <span class="nt">&#34;uin&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nt">&#34;verify_type&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}}}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>再把<code>purl</code>代入外链<code>https://isure.stream.qqmusic.qq.com</code>(<code>http://ws.stream.qqmusic.qq.com</code>也可以)，得到如下链接：
+<code>https://isure.stream.qqmusic.qq.com/C400003jblv923cckE.m4a?guid=358840384&amp;vkey=9B9B50B3B25F0A5B339075E830EDE2E10FDC429A412FD272C65C2C0BA96846C98CF95F046C4B6E76BB16191F791104AB1B949E0C5168C3D0&amp;uin=0&amp;fromtag=66</code>
+打开，便是我们想要的音乐文件了。下载音乐，请参考我的前两篇文章：
+<a href="/post/CUlLXMwcx/" class="LinkCard">从零开始写一个音乐爬虫-2-网易云音乐：下载音乐文件</a>
+<a href="/post/lOWHTeAPC/" class="LinkCard">从零开始写一个音乐爬虫-3-酷狗音乐</a>
+代码之后放上来。</p>
+</div>
+
+        </article>
+
+        
+
+        
+    
+    
+    
+        <ul class="post-copyright">
+            <li class="copyright-item author"><span class="copyright-item-text">作者</span>：<a href="https://raycoder.me/" target="_blank" rel="noopener">Ray</a></li>
+            
+                
+                
+                
+                
+                <li class="copyright-item link"><span class="copyright-item-text">链接</span>：<a href="/p/qqmusic-spider-artlist/" target="_blank" rel="noopener">https://raycoder.me/p/qqmusic-spider-artlist/</a></li>
+            
+            <li class="copyright-item license"><span class="copyright-item-text">许可</span>：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
+            
+        </ul>
+    
+
+
+
+        
+    <div class="updated-badge-container"><div title="Updated @ 2020-04-08 09:22:22 CST" style="cursor:help;display:inline-block">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2020-04-08</text><text x="915" y="140" textLength="650" transform="scale(.1)">2020-04-08</text></g></svg></div></div>
+
+
+        
+
+        
+    
+    
+
+<div class="post-share">
+
+        
+
+        <div class="share-items">
+
+            
+                
+                <div class="share-item twitter">
+                    
+                    <a href="https://twitter.com/share?url=https://raycoder.me/p/qqmusic-spider-artlist/&amp;text=%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e5%86%99%e4%b8%80%e4%b8%aa%e9%9f%b3%e4%b9%90%e7%88%ac%e8%99%ab-4%ef%bc%9aQQ%e9%9f%b3%e4%b9%90&amp;via=%25!s%28%3cnil%3e%29" title="分享到「Twitter」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon twitter-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                </div>
+            
+
+            
+                
+                <div class="share-item facebook">
+                    
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://raycoder.me/p/qqmusic-spider-artlist/" title="分享到「Facebook」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon facebook-icon"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+                </div>
+            
+
+            
+                
+                <div class="share-item linkedin">
+                    
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://raycoder.me/p/qqmusic-spider-artlist/&amp;title=%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e5%86%99%e4%b8%80%e4%b8%aa%e9%9f%b3%e4%b9%90%e7%88%ac%e8%99%ab-4%ef%bc%9aQQ%e9%9f%b3%e4%b9%90&amp;summary=%e5%88%92%e4%ba%86%e8%bf%99%e4%b9%88%e5%a4%9a%e5%a4%a9%e6%b0%b4%ef%bc%8c%e6%88%91%e7%bb%88%e4%ba%8e%e5%9b%9e%e6%9d%a5%e4%ba%86%e2%80%a6%e2%80%a6%20%e6%af%95%e7%ab%9f%e8%af%be%e4%b9%9f%e6%98%af%e8%a6%81%e4%b8%8a%e7%9a%84%e3%80%82%20%e6%9c%80%e8%bf%91%e7%bb%88%e4%ba%8e%e6%8a%bd%e5%87%ba%e4%b8%80%e4%ba%9b%e6%97%b6%e9%97%b4%e4%ba%86%ef%bc%8c%e7%a0%94%e7%a9%b6%e7%a0%94%e7%a9%b6QQ%e9%9f%b3%e4%b9%90%e7%9a%84%e7%88%ac%e8%99%ab%e3%80%82%20%e6%88%91%e4%bb%ac%e9%9a%8f%e4%be%bf%e6%89%93%e5%bc%80%e4%b8%80%e4%b8%aa%e6%ad%8c%e5%8d%95%28https://y.qq.com/n/yqq/playlist/68097168%e2%80%a6%e2%80%a6&amp;source=Ray%27s%20Blog" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                </div>
+            
+
+            
+                
+                <div class="share-item telegram">
+                    
+                    <a href="https://t.me/share/url?url=https://raycoder.me/p/qqmusic-spider-artlist/&amp;text=%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e5%86%99%e4%b8%80%e4%b8%aa%e9%9f%b3%e4%b9%90%e7%88%ac%e8%99%ab-4%ef%bc%9aQQ%e9%9f%b3%e4%b9%90" title="分享到「Telegram」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon telegram-icon"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg></a>
+                </div>
+            
+
+            
+                
+                <div class="share-item weibo">
+                    
+                    <a href="https://service.weibo.com/share/share.php?&amp;url=https://raycoder.me/p/qqmusic-spider-artlist/&amp;title=%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e5%86%99%e4%b8%80%e4%b8%aa%e9%9f%b3%e4%b9%90%e7%88%ac%e8%99%ab-4%ef%bc%9aQQ%e9%9f%b3%e4%b9%90&amp;pic=https://raycoder.me/post-images/1583376357108.jpg&amp;searchPic=false" title="分享到「新浪微博」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon weibo-icon"><path d="M407 177.6c7.6-24-13.4-46.8-37.4-41.7-22 4.8-28.8-28.1-7.1-32.8 50.1-10.9 92.3 37.1 76.5 84.8-6.8 21.2-38.8 10.8-32-10.3zM214.8 446.7C108.5 446.7 0 395.3 0 310.4c0-44.3 28-95.4 76.3-143.7C176 67 279.5 65.8 249.9 161c-4 13.1 12.3 5.7 12.3 6 79.5-33.6 140.5-16.8 114 51.4-3.7 9.4 1.1 10.9 8.3 13.1 135.7 42.3 34.8 215.2-169.7 215.2zm143.7-146.3c-5.4-55.7-78.5-94-163.4-85.7-84.8 8.6-148.8 60.3-143.4 116s78.5 94 163.4 85.7c84.8-8.6 148.8-60.3 143.4-116zM347.9 35.1c-25.9 5.6-16.8 43.7 8.3 38.3 72.3-15.2 134.8 52.8 111.7 124-7.4 24.2 29.1 37 37.4 12 31.9-99.8-55.1-195.9-157.4-174.3zm-78.5 311c-17.1 38.8-66.8 60-109.1 46.3-40.8-13.1-58-53.4-40.3-89.7 17.7-35.4 63.1-55.4 103.4-45.1 42 10.8 63.1 50.2 46 88.5zm-86.3-30c-12.9-5.4-30 .3-38 12.9-8.3 12.9-4.3 28 8.6 34 13.1 6 30.8.3 39.1-12.9 8-13.1 3.7-28.3-9.7-34zm32.6-13.4c-5.1-1.7-11.4.6-14.3 5.4-2.9 5.1-1.4 10.6 3.7 12.9 5.1 2 11.7-.3 14.6-5.4 2.8-5.2 1.1-10.9-4-12.9z"/></svg></a>
+                </div>
+            
+
+            
+                
+                <div class="share-item douban">
+                    
+                    <a href="https://www.douban.com/share/service?href=https://raycoder.me/p/qqmusic-spider-artlist/&amp;name=%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e5%86%99%e4%b8%80%e4%b8%aa%e9%9f%b3%e4%b9%90%e7%88%ac%e8%99%ab-4%ef%bc%9aQQ%e9%9f%b3%e4%b9%90&amp;text=%e5%88%92%e4%ba%86%e8%bf%99%e4%b9%88%e5%a4%9a%e5%a4%a9%e6%b0%b4%ef%bc%8c%e6%88%91%e7%bb%88%e4%ba%8e%e5%9b%9e%e6%9d%a5%e4%ba%86%e2%80%a6%e2%80%a6%20%e6%af%95%e7%ab%9f%e8%af%be%e4%b9%9f%e6%98%af%e8%a6%81%e4%b8%8a%e7%9a%84%e3%80%82%20%e6%9c%80%e8%bf%91%e7%bb%88%e4%ba%8e%e6%8a%bd%e5%87%ba%e4%b8%80%e4%ba%9b%e6%97%b6%e9%97%b4%e4%ba%86%ef%bc%8c%e7%a0%94%e7%a9%b6%e7%a0%94%e7%a9%b6QQ%e9%9f%b3%e4%b9%90%e7%9a%84%e7%88%ac%e8%99%ab%e3%80%82%20%e6%88%91%e4%bb%ac%e9%9a%8f%e4%be%bf%e6%89%93%e5%bc%80%e4%b8%80%e4%b8%aa%e6%ad%8c%e5%8d%95%28https://y.qq.com/n/yqq/playlist/68097168%e2%80%a6%e2%80%a6" title="分享到「豆瓣」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon douban-icon"><path d="M.643.92v2.412h22.714V.92H.643zm1.974 4.926v9.42h18.764v-9.42H2.617zm2.72 2.408H18.69v4.605H5.338V8.254zm1.657 7.412l-2.512.938c1.037 1.461 1.87 2.825 2.512 4.091H0v2.385h24v-2.385h-6.678c.818-1.176 1.589-2.543 2.303-4.091l-2.73-.938a29.952 29.952 0 01-2.479 5.03h-4.75c-.786-1.962-1.677-3.641-2.672-5.03Z"/></svg></a>
+                </div>
+            
+
+            
+                
+                <div class="share-item qq">
+                    
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://raycoder.me/p/qqmusic-spider-artlist/&amp;title=%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e5%86%99%e4%b8%80%e4%b8%aa%e9%9f%b3%e4%b9%90%e7%88%ac%e8%99%ab-4%ef%bc%9aQQ%e9%9f%b3%e4%b9%90&amp;summary=%e5%88%92%e4%ba%86%e8%bf%99%e4%b9%88%e5%a4%9a%e5%a4%a9%e6%b0%b4%ef%bc%8c%e6%88%91%e7%bb%88%e4%ba%8e%e5%9b%9e%e6%9d%a5%e4%ba%86%e2%80%a6%e2%80%a6%20%e6%af%95%e7%ab%9f%e8%af%be%e4%b9%9f%e6%98%af%e8%a6%81%e4%b8%8a%e7%9a%84%e3%80%82%20%e6%9c%80%e8%bf%91%e7%bb%88%e4%ba%8e%e6%8a%bd%e5%87%ba%e4%b8%80%e4%ba%9b%e6%97%b6%e9%97%b4%e4%ba%86%ef%bc%8c%e7%a0%94%e7%a9%b6%e7%a0%94%e7%a9%b6QQ%e9%9f%b3%e4%b9%90%e7%9a%84%e7%88%ac%e8%99%ab%e3%80%82%20%e6%88%91%e4%bb%ac%e9%9a%8f%e4%be%bf%e6%89%93%e5%bc%80%e4%b8%80%e4%b8%aa%e6%ad%8c%e5%8d%95%28https://y.qq.com/n/yqq/playlist/68097168%e2%80%a6%e2%80%a6&amp;pics=https://raycoder.me/post-images/1583376357108.jpg&amp;site=Ray%27s%20Blog" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                </div>
+            
+
+            
+                
+                <div class="share-item qzone">
+                    
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://raycoder.me/p/qqmusic-spider-artlist/&amp;title=%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e5%86%99%e4%b8%80%e4%b8%aa%e9%9f%b3%e4%b9%90%e7%88%ac%e8%99%ab-4%ef%bc%9aQQ%e9%9f%b3%e4%b9%90&amp;summary=%e5%88%92%e4%ba%86%e8%bf%99%e4%b9%88%e5%a4%9a%e5%a4%a9%e6%b0%b4%ef%bc%8c%e6%88%91%e7%bb%88%e4%ba%8e%e5%9b%9e%e6%9d%a5%e4%ba%86%e2%80%a6%e2%80%a6%20%e6%af%95%e7%ab%9f%e8%af%be%e4%b9%9f%e6%98%af%e8%a6%81%e4%b8%8a%e7%9a%84%e3%80%82%20%e6%9c%80%e8%bf%91%e7%bb%88%e4%ba%8e%e6%8a%bd%e5%87%ba%e4%b8%80%e4%ba%9b%e6%97%b6%e9%97%b4%e4%ba%86%ef%bc%8c%e7%a0%94%e7%a9%b6%e7%a0%94%e7%a9%b6QQ%e9%9f%b3%e4%b9%90%e7%9a%84%e7%88%ac%e8%99%ab%e3%80%82%20%e6%88%91%e4%bb%ac%e9%9a%8f%e4%be%bf%e6%89%93%e5%bc%80%e4%b8%80%e4%b8%aa%e6%ad%8c%e5%8d%95%28https://y.qq.com/n/yqq/playlist/68097168%e2%80%a6%e2%80%a6&amp;pics=https://raycoder.me/post-images/1583376357108.jpg&amp;site=Ray%27s%20Blog" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                </div>
+            
+
+            
+                
+                <div class="share-item qrcode">
+                    <div class="qrcode-container" title="通过「二维码」"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qrcode-icon"><path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"/></svg><div id="qrcode-img"></div>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+
+<script>
+    var typeNumber = 0;
+    var errorCorrectionLevel = 'L';
+    var qr = qrcode(typeNumber, errorCorrectionLevel);
+    qr.addData('https:\/\/raycoder.me\/p\/qqmusic-spider-artlist\/');
+    qr.make();
+    document.getElementById('qrcode-img').innerHTML = qr.createImgTag();
+</script>
+
+                </div>
+            
+
+        </div>
+
+    </div>
+
+
+
+
+        
+    
+    
+        <div class="related-posts">
+            <h2 class="related-title">相关文章：<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon related-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/></svg></h2>
+            <ul class="related-list">
+                
+                    <li class="related-item">
+                        <a href="/p/music-spider-downloader/" class="related-link">从零开始写一个音乐爬虫-2：下载音乐文件</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/p/cloudmusic-spider-artlist/" class="related-link">从零开始写一个音乐爬虫-1-网易云音乐：批量获取歌单音乐下载链接</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/p/kugoumusic-spider-artlist/" class="related-link">从零开始写一个音乐爬虫-3：酷狗音乐</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/p/python-exec/" class="related-link">Python学习笔记之exec()函数简析</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/p/python-eval/" class="related-link">Python学习笔记之eval()函数简析</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+
+        
+    
+        <div class="post-tags">
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/python/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>Python</a>
+                
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>爬虫</a>
+                
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/qq%E9%9F%B3%E4%B9%90/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>QQ音乐</a>
+                
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/%E7%A6%8F%E5%88%A9/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>福利</a>
+                
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/%E7%A0%B4%E8%A7%A3/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>破解</a>
+                
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>音乐</a>
+                
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/%E4%BC%9A%E5%91%98/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>会员</a>
+                
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/python%E8%BF%9B%E9%98%B6/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>Python进阶</a>
+                
+            
+        </div>
+    
+
+
+        
+
+        
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+                <li class="post-nav-prev">
+                    <a href="/p/python-eval/" rel="prev">< Python学习笔记之eval()函数简析</a>
+                </li>
+            
+            
+                <li class="post-nav-next">
+                    <a href="/p/music-spider-downloader/" rel="next">从零开始写一个音乐爬虫-2：下载音乐文件 ></a>
+                </li>
+            
+        </ul>
+    
+
+
+        
+    
+
+        
+		
+		
+
+        
+
+        
+
+        
+            <div id="vexcomments"></div>
+			<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/js/Valineex.min.js"></script>
+<script>
+    new Valine({
+        el: '#vexcomments',
+        lang: "zh-cn",
+        av: AV,
+        admin_email: "ray@raycoder.me",
+        app_id: "e2T8oJJTuQE1A2aE6Wu7wD8p-MdYXbMMI",
+        app_key: "CJOMWxWOTPQ8WLGolGAqi6wz",
+        emoticon_url: "https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/emoji",
+        emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png", "大佬.gif","点赞.gif","尴尬.gif","鼓掌.gif","笑哭.gif","害羞.gif","黑人问号.gif","坏笑.gif","惊吓.gif","可爱.gif","抠鼻子.gif","流汗.gif","色.gif","吐血.gif","无奈.gif","huaji.png","liuhanhuaji.png","mojinghuaji.png","coshuaji.png","shounuehuaji.png","jizhi.png","doge.png","chigua.png","motion_1016.png","motion_1012.png","motion_1017.png","f_hufen.png","f_geili.png","f_jiong.png","f_meng.png","f_shenma.png","f_v5.png","c_onef.png","c_onem.png","c_fivem.png","c_oney.png","c_teny.png","c_oy.png","1f60a.png","1f60b.png","1f60d.png","1f60e.png","1f61a.png","1f62d.png","1f601.png","1f602.png","1f605.png","1f606.png","1f607.png","1f618.png","1f630.png","1f631.png","1f632.png","1f633.png","1f63e.png","1f63f.png","1f638.png","1f639.png","zhayanjian.gif","ciya.gif","xieyanxiao.gif","huaixiao.gif","xiaoku.gif","leiben.gif","penxue.gif","hanxiao.gif","baiyan.gif","cahan.gif","fadai.gif","haixiu.gif","haqian.gif","ku.gif","liuhan.gif","OK.gif","qiang.gif","woshou.gif","baoquan.gif","qiudale.gif","se.gif","yinxian.gif","yun.gif","zaijian.gif"],
+        placeholder: "(｡◕ˇ∀ˇ◕)来鸭！快活鸭！"
+    });
+</script>
+
+        
+
+        
+
+    
+
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+            
+    <footer id="footer" class="footer">
+        <div class="footer-inner"><div class="site-info">©&nbsp;2019–2020&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;Ray</div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div><div class="custom-footer"><a href="/atom.xml">Atom</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/rss.xml">RSS</a></div>
+
+            <script src="/js/insight.js"></script>
+
+        </div>
+    </footer>
+
+
+        </div>
+        <script src="/js/meme.min.f36dfafc81a5064b571150628139b6f380711072aab59919073ad59be8fe1ee5.js" integrity="sha256-8236/IGlBktXEVBigTm284BxEHKqtZkZBzrVm+j+HuU="></script>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+
+<script>
+    var scroll = new SmoothScroll('a[href*="#"]', {
+        speedAsDuration: true,
+        header: '[data-scroll-header]'
+    });
+</script>
+
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG" crossorigin="anonymous" />
+<script>
+    if (typeof renderMathInElement === 'undefined') {
+        var getScript = (options) => {
+            var script = document.createElement('script');
+            script.defer = true;
+            script.crossOrigin = 'anonymous';
+            Object.keys(options).forEach((key) => {
+                script[key] = options[key];
+            });
+            document.body.appendChild(script);
+        };
+        getScript({
+            src: 'https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js',
+            integrity: 'sha384-JiKN5O8x9Hhs/UE5cT5AAJqieYlOZbGT3CHws/y97o3ty4R7/O5poG9F3JoiOYw1',
+            onload: () => {
+                getScript({
+                    src: 'https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/mhchem.min.js',
+                    integrity: 'sha384-oa0lfxCGjaU1LdYckhq8LZcP+JTf8cyJXe69O6VE6UrShzWveT6KiCElJrck/stm',
+                    onload: () => {
+                        getScript({
+                            src: 'https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/auto-render.min.js',
+                            integrity: 'sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI',
+                            onload: () => {
+                                renderKaTex();
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    } else {
+        renderKaTex();
+    }
+    function renderKaTex() {
+        renderMathInElement(
+            document.body,
+            {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false}
+                ]
+            }
+        );
+    }
+</script>
+
+
+
+    <script>
+    if (typeof MathJax === 'undefined') {
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/mhchem']
+            },
+            
+                options: {
+                    renderActions: {
+                        addMenu: [0, '', '']
+                    }
+                },
+            
+            tex: {
+                inlineMath: {'[+]': [['$', '$']]},
+                tags: 'ams',
+                packages: {'[+]': ['mhchem']}
+            }
+        };
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js';
+            script.defer = true;
+            document.head.appendChild(script);
+        })();
+    } else {
+        MathJax.texReset();
+        MathJax.typeset();
+    }
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+<script>
+    var config = {
+        startOnLoad: true,
+        flowchart: {
+            useMaxWidth: false,
+            htmlLabels: true
+        }
+    };
+    mermaid.initialize(config);
+</script>
+
+
+
+
+    
+
+        
+
+        
+
+        
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    mediumZoom(document.querySelectorAll('div.post-body img'), {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+    <div class="app-refresh" id="app-refresh">
+        <div class="app-refresh-wrap" onclick="location.reload()">
+            <label>已更新最新版本</label>
+            <span>点击刷新</span>
+        </div>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            if (navigator.serviceWorker.controller) {
+                navigator.serviceWorker.addEventListener('controllerchange', function() {
+                    showNotification();
+                });
+            }
+
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('../../sw.js');
+            });
+        }
+
+        function showNotification() {
+            document.querySelector('meta[name=theme-color]').content = '#000';
+            document.getElementById('app-refresh').className += ' app-refresh-show';
+        }
+    </script>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+<script type="text/javascript">
+	console.log("%c Welcome To Ray's Blog "," text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);font-size:5em");
+	console.log("%c Welcome To Ray's Blog ", "font-size:100px;color:white;border-radius:20px;height:200px; background:-webkit-linear-gradient(yellow,orange,red,green,blue,purple);text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);");
+</script>
+
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $(function(){
+        document.body.oncopy = function() {
+            swal({
+                title: "没错你复制成功了!",
+                text: "转载请注明出处：Ray's Blog(https://raycoder.me)!",
+                icon: "success",
+                button: "好的我一定会注明出处!",
+				timer: 3000,
+            });
+        };
+    });
+</script>
+
+
+<script type="text/javascript" src="/js/linkcard.js"></script>
+<script type="text/javascript" src="/js/typing.js"></script>
+
+
+
+
+    </body>
+</html>
