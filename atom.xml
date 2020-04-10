@@ -1,7 +1,194 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><title type="text">Ray's Blog</title><subtitle type="html">夜晚再黑，也压不过雪的白。Ray,Code,Python,Git,爬虫,Hugo,MemE</subtitle><updated>2020-04-09T08:01:02+08:00</updated><id>https://raycoder.me/</id><link rel="alternate" type="text/html" href="https://raycoder.me/"/><link rel="self" type="application/atom+xml" href="https://raycoder.me/atom.xml"/><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><generator uri="https://gohugo.io/" version="0.68.3">Hugo</generator><entry><title type="text">HTML入门二：文本</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/html-2/"/><id>https://raycoder.me/p/html-2/</id><updated>2020-04-08T13:20:54+08:00</updated><published>2020-04-08T13:19:37+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">写作不易，资瓷一下呗！个人博客：https://raycoder.me</summary><content type="html"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><title type="text">Ray's Blog</title><subtitle type="html">夜晚再黑，也压不过雪的白。Ray,Code,Python,Git,爬虫,Hugo,MemE</subtitle><updated>2020-04-10T20:12:56+08:00</updated><id>https://raycoder.me/</id><link rel="alternate" type="text/html" href="https://raycoder.me/"/><link rel="self" type="application/atom+xml" href="https://raycoder.me/atom.xml"/><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><generator uri="https://gohugo.io/" version="0.68.3">Hugo</generator><entry><title type="text">Travis CI自动部署Hugo博客</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/"/><id>https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/</id><updated>2020-04-10T19:59:51+08:00</updated><published>2020-04-09T13:16:30+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Travis CI自动部署Hugo博客至GitHub</summary><content type="html"><![CDATA[<blockquote>
+<p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
+</blockquote>
+<p>近日发现GitHub Pages国内访问速度变快，准备换回去。奈何我又想保留GitHub上的源码，Hugo又没有<code>hexo d</code>这样的一键部署操作，只能使用Travis CI（<code>Continuous Integration</code>，持续集成）来实现。</p>
+<hr>
+<h3 id="什么是ci">什么是CI？</h3>
+<p>CI，<code>Continuous Integration</code>，持续集成。CI就像是一个监视器，在你赋予它权限后，它就会一直盯着你仓库的动态。当你的仓库触发指定操作时，它就把相应的指令执行完。</p>
+<hr>
+<h3 id="部署hugo">部署Hugo</h3>
+<p>（请先在你的仓库创建一个新分支，如<code>hugo</code>，再设置其为主分支）</p>
+<p>我们得先获取一个<a href="https://github.com/settings/tokens"><code>Personal access token</code></a>，用于给Travis CI访问仓库的权限。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200409132636.png" alt=""></p>
+<p>点击之后，只需要勾选<code>repo:status</code>、<code> repo_deployment</code>和<code>public_repo</code>三项即可，这样即使令牌被盗，也可以最大的减少损失。Note处是可选的，不需要填写，只是起分辨作用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200409133232.png" alt=""></p>
+<p>生成完之后一定要保存令牌，这个令牌只会出现一次。</p>
+<p>随后让我们打开<a href="https://travis-ci.com">Travis CI官网</a>，使用GitHub登录。</p>
+<p>选择你的博客仓库。</p>
+<p>点击<code>Settings</code>，在<code>Environment Variables</code>中添加刚刚的令牌，<code>NAME</code>为<code>ACCESS_TOKEN</code>，<code>VALUE</code>为你的令牌。<code>Branch</code>选<code>All branches</code>。</p>
+<hr>
+<h3 id="travis钩子">Travis钩子</h3>
+<p>Travis 有不同的阶段,他提供了7个钩子。</p>
+<ul>
+<li>before_install：install 阶段之前执行</li>
+<li>before_script：script 阶段之前执行</li>
+<li>after_failure：script 阶段失败时执行</li>
+<li>after_success：script 阶段成功时执行</li>
+<li>before_deploy：deploy 步骤之前执行</li>
+<li>after_deploy：deploy 步骤之后执行</li>
+<li>after_script：script 阶段之后执行</li>
+</ul>
+<h3 id="生命周期">生命周期</h3>
+<ol>
+<li>before_install</li>
+<li>install</li>
+<li>before_script</li>
+<li>script</li>
+<li>aftersuccess or afterfailure</li>
+<li>[OPTIONAL] before_deploy</li>
+<li>[OPTIONAL] deploy</li>
+<li>[OPTIONAL] after_deploy</li>
+<li>after_script</li>
+</ol>
+<p>在博客根目录下新建<code>.travis.yml</code>，内容如下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">language</span><span class="p">:</span><span class="w"> </span>node_js<span class="w"> </span><span class="c">#语言是NodeJS</span><span class="w">
+</span><span class="w"></span><span class="k">node_js</span><span class="p">:</span><span class="w"> </span><span class="m">13.12.0</span><span class="w"> </span><span class="c">#Node版本，我是用了一些npm模块</span><span class="w">
+</span><span class="w"></span><span class="k">install</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- wget<span class="w"> </span>https<span class="p">:</span>//github.com/gohugoio/hugo/releases/download/v0<span class="m">.68.3</span>/hugo_extended_0<span class="m">.68</span>.3_Linux-64bit.deb<span class="w"> </span><span class="c">#wgetHugo的安装包，可以修改</span><span class="w">
+</span><span class="w">    </span>- sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>hugo<span class="cp">*.deb</span><span class="w">
+</span><span class="w">    </span>- hugo<span class="w"> </span>version<span class="w">
+</span><span class="w">    </span>- rm<span class="w"> </span>-rf<span class="w"> </span>public<span class="w">
+</span><span class="w">    </span>- npm<span class="w"> </span>install<span class="w"> </span><span class="c">#安装依赖，要package.json，没需求的可以省略</span><span class="w">
+</span><span class="w">    
+</span><span class="w"></span><span class="k">script</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- npm<span class="w"> </span>run<span class="w"> </span>build<span class="w"> </span><span class="c">#我这里在package.json配置了一系列生成操作，可以自己替换</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">after_success</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&#34;FFRaycoder&#34;</span><span class="w"> </span><span class="c">#用户名</span><span class="w">
+</span><span class="w">    </span>- git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&#34;ray@raycoder.me&#34;</span><span class="w"> </span><span class="c">#用户邮箱</span><span class="w">
+</span><span class="w">    </span>- git<span class="w"> </span>clone<span class="w"> </span>https<span class="p">:</span>//${ACCESS_TOKEN}@github.com/FFRaycoder/ffraycoder.github.io.git<span class="w"> </span>container<span class="w"> </span><span class="c">#换成你的仓库</span><span class="w">
+</span><span class="w">    </span>- rm<span class="w"> </span>-rf<span class="w"> </span>container/*<span class="w">
+</span><span class="w">    </span>- cp<span class="w"> </span>-r<span class="w"> </span>public/*<span class="w"> </span>container<span class="w"> 
+</span><span class="w">    </span>- cd<span class="w"> </span>container<span class="w">
+</span><span class="w">    </span>- git<span class="w"> </span>add<span class="w"> </span>.<span class="w">
+</span><span class="w">    </span>- git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;Travis update blog&#39;</span><span class="w">
+</span><span class="w">    </span>- git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>-f<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><code>package.json</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;blog&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Ray&#39;s Blog&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;main&#34;</span><span class="p">:</span> <span class="s2">&#34;index.js&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;scripts&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;echo \&#34;Error: no test specified\&#34; &amp;&amp; exit 1&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;build&#34;</span><span class="p">:</span> <span class="s2">&#34;git config --global core.quotePath false &amp;&amp; hugo --gc --minify --cleanDestinationDir &amp;&amp; ./node_modules/gulp/bin/gulp.js build&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;hugo-lunr&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;algolia&#34;</span><span class="p">:</span> <span class="s2">&#34;atomic-algolia&#34;</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;engines&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;node&#34;</span><span class="p">:</span> <span class="s2">&#34;12.x&#34;</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;repository&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;git&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;git+https://github.com/FFRaycoder/blog.git&#34;</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;keywords&#34;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&#34;blog&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;hugo&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;hugo-theme-meme&#34;</span>
+  <span class="p">],</span>
+  <span class="nt">&#34;author&#34;</span><span class="p">:</span> <span class="s2">&#34;reuixiy&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;license&#34;</span><span class="p">:</span> <span class="s2">&#34;CC-BY-NC-SA-4.0&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;bugs&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/FFRaycoder/blog/issues&#34;</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;homepage&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/FFRaycoder/blog&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;devDependencies&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;gulp&#34;</span><span class="p">:</span> <span class="s2">&#34;^4.0.2&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;gulp-uglify&#34;</span><span class="p">:</span> <span class="s2">&#34;^3.0.2&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;hugo-search-index&#34;</span><span class="p">:</span> <span class="s2">&#34;^0.5.0&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;readable-stream&#34;</span><span class="p">:</span> <span class="s2">&#34;^3.6.0&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;uglify-es&#34;</span><span class="p">:</span> <span class="s2">&#34;^3.3.9&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;workbox-build&#34;</span><span class="p">:</span> <span class="s2">&#34;^5.0.0&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>至此，我们的配置就结束了。每次把博客源码推送到仓库的<code>hugo</code>分支，Travis就会自动帮你部署好网页。</p>
+]]></content><category scheme="https://raycoder.me/categories/ci/" term="CI" label="CI"/><category scheme="https://raycoder.me/tags/travis-ci/" term='Travis CI"' label='Travis CI"'/><category scheme="https://raycoder.me/tags/hugo/" term="Hugo" label="Hugo"/><category scheme="https://raycoder.me/tags/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/" term="博客" label="博客"/></entry><entry><title type="text">GitHub Pages变快了！</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/github-pages-becomes-faster/"/><id>https://raycoder.me/p/github-pages-becomes-faster/</id><updated>2020-04-09T14:00:23+08:00</updated><published>2020-04-09T09:38:09+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">GitHub Pages变快了！</summary><content type="html"><![CDATA[<blockquote>
+<p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
+</blockquote>
+<p>前天在逛大佬们的博客，有的大佬用的是<code>github.io</code>二级域名。然后网页挂了，交流群内一片喊声<heimu>淦</heimu>🙃</p>
+<p>昨天上午又去看了看，Pages可以正常访问了。阿，怎么感觉变快了？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200409094422.png" alt=""></p>
+<p>众所周知GitHub采用的Fastly CDN，估计前天是增加国内节点去了。</p>
+<p>真香，可以抛弃Netlify了QQ</p>
+<hr>
+<p>而且取消了对百度Robots.txt的限制。</p>
+]]></content><category scheme="https://raycoder.me/categories/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/pages/" term="Pages" label="Pages"/></entry><entry><title type="text">HTML入门二：文本</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/html-2/"/><id>https://raycoder.me/p/html-2/</id><updated>2020-04-10T13:33:01+08:00</updated><published>2020-04-08T13:19:37+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">HTML入门学习二：文本</summary><content type="html"><![CDATA[<blockquote>
 <p><strong>写作不易，资瓷一下呗！个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 </blockquote>
-]]></content></entry><entry><title type="text">日本小哥的CPU料理！</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/cooking-with-cpu/"/><id>https://raycoder.me/p/cooking-with-cpu/</id><updated>2020-04-08T10:31:21+08:00</updated><published>2020-04-08T09:55:44+08:00</published><summary type="html">……</summary><content type="html"><![CDATA[<div id="player"></div>
+]]></content><category scheme="https://raycoder.me/categories/html/" term="HTML" label="HTML"/><category scheme="https://raycoder.me/categories/html%E5%85%A5%E9%97%A8/" term="HTML入门" label="HTML入门"/><category scheme="https://raycoder.me/tags/html/" term="HTML" label="HTML"/><category scheme="https://raycoder.me/tags/html%E5%85%A5%E9%97%A8/" term="HTML入门" label="HTML入门"/></entry><entry><title type="text">日本小哥的CPU料理！</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/cooking-with-cpu/"/><id>https://raycoder.me/p/cooking-with-cpu/</id><updated>2020-04-08T10:31:21+08:00</updated><published>2020-04-08T09:55:44+08:00</published><summary type="html">……</summary><content type="html"><![CDATA[<div id="player"></div>
 <script type="text/javascript" src="https://player.dogecloud.com/js/loader"></script>
 <script type="text/javascript">
 var player = new DogePlayer({
@@ -2296,7 +2483,7 @@ var player = new DogePlayer({
 </div>
 </div><p>以上仅仅简单介绍了 yield 的基本概念和用法，我们会在后续文章中讨论。</p>
 <p>转载了一部分内容：<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-python-yield">Python yield 使用浅析 | IBM</a></p>
-]]></content><category scheme="https://raycoder.me/categories/python/" term="Python" label="Python"/><category scheme="https://raycoder.me/categories/python%E5%85%B3%E9%94%AE%E5%AD%97/" term="Python关键字" label="Python关键字"/><category scheme="https://raycoder.me/categories/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" term="Python学习笔记" label="Python学习笔记"/><category scheme="https://raycoder.me/tags/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" term="Python学习笔记" label="Python学习笔记"/><category scheme="https://raycoder.me/tags/python/" term="Python" label="Python"/><category scheme="https://raycoder.me/tags/python%E5%85%B3%E9%94%AE%E5%AD%97/" term="Python关键字" label="Python关键字"/></entry><entry><title type="text">建立个人博客配置推荐</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/build-a-blog-recommendation/"/><id>https://raycoder.me/p/build-a-blog-recommendation/</id><updated>2020-04-08T08:39:58+08:00</updated><published>2020-03-26T15:48:50+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Build a Blog Recommendation/建立个人博客配置推荐</summary><content type="html"><![CDATA[<p>建立个人博客白嫖推荐：</p>
+]]></content><category scheme="https://raycoder.me/categories/python/" term="Python" label="Python"/><category scheme="https://raycoder.me/categories/python%E5%85%B3%E9%94%AE%E5%AD%97/" term="Python关键字" label="Python关键字"/><category scheme="https://raycoder.me/categories/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" term="Python学习笔记" label="Python学习笔记"/><category scheme="https://raycoder.me/tags/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" term="Python学习笔记" label="Python学习笔记"/><category scheme="https://raycoder.me/tags/python/" term="Python" label="Python"/><category scheme="https://raycoder.me/tags/python%E5%85%B3%E9%94%AE%E5%AD%97/" term="Python关键字" label="Python关键字"/></entry><entry><title type="text">建立个人博客配置推荐</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/build-a-blog-recommendation/"/><id>https://raycoder.me/p/build-a-blog-recommendation/</id><updated>2020-04-10T13:47:23+08:00</updated><published>2020-03-26T15:48:50+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Build a Blog Recommendation/建立个人博客配置推荐</summary><content type="html"><![CDATA[<p>建立个人博客白嫖推荐：</p>
 <ul>
 <li>框架/主题：<a href="https://gohugo.io">Hugo</a>&amp;<a href="https://github.com/reuixiy/hugo-theme-meme">MemE</a></li>
 <li>源码托管：<a href="https://github.com">GitHub</a></li>
@@ -2317,7 +2504,7 @@ var player = new DogePlayer({
 </ol>
 <p>注意：如果你跟随本文教程搭建博客，那么请在<a href=""><code>Releases</code></a>界面下载拓展版Hugo，文件名如<code>hugo_extended_X.Y.Z_SYS-64bit.zip</code>，免安装的。</p>
 <p>下载后需要将它保存到一个固定的目录，随意。我不建议放到<code>C:/Windows/System32</code>下，因为<code>Hugo</code>更新的<em class="emphasis-point">很勤</em>。</p>
-<p>下载保存解压后在一个<em class="emphasis-point">博客专用目录</em>（个人建议）下运行命令（<code>CMD</code>,<a href="https://gitforwindows.org"><code>Git BASH</code></a>都可，推荐<code>Git BASH</code>，可执行命令比CMD多。）：</p>
+<p>下载保存解压后在一个<em class="emphasis-point">博客专用目录</em>（个人建议）下运行命令（<code>CMD</code>,<a href="https://git-scm.com"><code>Git BASH</code></a>都可，推荐<code>Git BASH</code>，可执行命令比CMD多。）：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2701,7 +2888,7 @@ npm ERR!     /opt/buildhome/.npm/_logs/2020-03-23T23_50_59_667Z-debug.log
 <hr>
 <p>2020/4/8更新：</p>
 <p>有兴趣的同学可以使用<a href="https://forestry.io/">Forestry CMS</a>，可以给静态博客加上个后台。自己捣鼓。</p>
-]]></content><category scheme="https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/" term="博客" label="博客"/><category scheme="https://raycoder.me/tags/hugo/" term="Hugo" label="Hugo"/><category scheme="https://raycoder.me/tags/git/" term="Git" label="Git"/><category scheme="https://raycoder.me/tags/netlify/" term="Netlify" label="Netlify"/></entry><entry><title type="text">本站UV达到1000人啦！</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/1000-uv/"/><id>https://raycoder.me/p/1000-uv/</id><updated>2020-04-02T10:51:07+08:00</updated><published>2020-03-22T14:26:44+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">本站达到1000UV</summary><content type="html">&lt;center>&lt;font size=7>好的开端！庆祝🤤🤤🤤~撒花🎉🎉🎉~&lt;/font>&lt;/center></content><category scheme="https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/" term="博客" label="博客"/><category scheme="https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/" term="博客" label="博客"/></entry><entry><title type="text">Hugo-HTML版GOTO链接中转页</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/goto-transfer-page/"/><id>https://raycoder.me/p/goto-transfer-page/</id><updated>2020-04-08T09:00:08+08:00</updated><published>2020-03-19T15:13:31+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Hugo-HTML版GOTO链接中转页</summary><content type="html"><![CDATA[<p><a href="http://www.aeink.com/791.html">原作者</a>是PHP版本，我把它移植到了HTML上。代码很丑，勿喷！（适用于Hugo）</p>
+]]></content><category scheme="https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/" term="博客" label="博客"/><category scheme="https://raycoder.me/tags/hugo/" term="Hugo" label="Hugo"/><category scheme="https://raycoder.me/tags/git/" term="Git" label="Git"/><category scheme="https://raycoder.me/tags/netlify/" term="Netlify" label="Netlify"/></entry><entry><title type="text">本站UV达到1000人啦！</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/1000-uv/"/><id>https://raycoder.me/p/1000-uv/</id><updated>2020-04-09T09:07:57+08:00</updated><published>2020-03-22T14:26:44+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">本站达到1000UV</summary><content type="html">&lt;center>&lt;font size=7>好的开端！庆祝🤤🤤🤤~撒花🎉🎉🎉~&lt;/font>&lt;/center></content><category scheme="https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/" term="博客" label="博客"/><category scheme="https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/" term="博客" label="博客"/></entry><entry><title type="text">Hugo-HTML版GOTO链接中转页</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/goto-transfer-page/"/><id>https://raycoder.me/p/goto-transfer-page/</id><updated>2020-04-08T09:00:08+08:00</updated><published>2020-03-19T15:13:31+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Hugo-HTML版GOTO链接中转页</summary><content type="html"><![CDATA[<p><a href="http://www.aeink.com/791.html">原作者</a>是PHP版本，我把它移植到了HTML上。代码很丑，勿喷！（适用于Hugo）</p>
 <p>自己在<code>./blog/static/</code>下新建<code>goto/index.html</code>，代码如下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -3847,9 +4034,9 @@ expression 参数会作为一个 Python 表达式（从技术上说是一个条�
 <span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></content><category scheme="https://raycoder.me/categories/python/" term="Python" label="Python"/><category scheme="https://raycoder.me/categories/python%E5%85%B3%E9%94%AE%E5%AD%97/" term="Python关键字" label="Python关键字"/><category scheme="https://raycoder.me/categories/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" term="Python学习笔记" label="Python学习笔记"/><category scheme="https://raycoder.me/tags/python/" term="Python" label="Python"/><category scheme="https://raycoder.me/tags/python%E8%BF%9B%E9%98%B6/" term="Python进阶" label="Python进阶"/><category scheme="https://raycoder.me/tags/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" term="内置函数" label="内置函数"/><category scheme="https://raycoder.me/tags/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" term="Python学习笔记" label="Python学习笔记"/></entry><entry><title type="text">从零开始写一个音乐爬虫-4：QQ音乐</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/qqmusic-spider-artlist/"/><id>https://raycoder.me/p/qqmusic-spider-artlist/</id><updated>2020-04-08T09:22:22+08:00</updated><published>2020-03-05T10:43:15+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">划了这么多天水，我终于回来了…… 毕竟课也是要上的。 最近终于抽出一些时间了，研究研究QQ音乐的爬虫。 我们随便打开一个歌单(https://y.qq.com/n/yqq/playlist/68097168……</summary><content type="html"><![CDATA[<p>划了这么多天水，我终于回来了……
+</div>]]></content><category scheme="https://raycoder.me/categories/python/" term="Python" label="Python"/><category scheme="https://raycoder.me/categories/python%E5%85%B3%E9%94%AE%E5%AD%97/" term="Python关键字" label="Python关键字"/><category scheme="https://raycoder.me/categories/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" term="Python学习笔记" label="Python学习笔记"/><category scheme="https://raycoder.me/tags/python/" term="Python" label="Python"/><category scheme="https://raycoder.me/tags/python%E8%BF%9B%E9%98%B6/" term="Python进阶" label="Python进阶"/><category scheme="https://raycoder.me/tags/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" term="内置函数" label="内置函数"/><category scheme="https://raycoder.me/tags/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" term="Python学习笔记" label="Python学习笔记"/></entry><entry><title type="text">从零开始写一个音乐爬虫-4：QQ音乐</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/qqmusic-spider-artlist/"/><id>https://raycoder.me/p/qqmusic-spider-artlist/</id><updated>2020-04-09T17:41:09+08:00</updated><published>2020-03-05T10:43:15+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">划了这么多天水，我终于回来了…… 毕竟博主也是要上课的,QwQ。 最近终于抽出一些时间了，研究研究QQ音乐的爬虫。 我们随便打开一个歌单(https://y.qq.com/n/yqq/playlist/68……</summary><content type="html"><![CDATA[<p>划了这么多天水，我终于回来了……
 <img src="https://raycoder.me/post-images/1583376357108.jpg" alt="">
-毕竟课也是要上的。
+毕竟博主也是要上课的,QwQ。
 最近终于抽出一些时间了，研究研究QQ音乐的爬虫。
 我们随便打开一个歌单(<a href="https://y.qq.com/n/yqq/playlist/6809716883.html">https://y.qq.com/n/yqq/playlist/6809716883.html</a>)，登录自己的QQ：
 <img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130255.png" alt="https://y.qq.com/n/yqq/playlist/6809716883.html" title="https://y.qq.com/n/yqq/playlist/6809716883.html">
@@ -5465,7 +5652,7 @@ P.S.我发现貌似随机Cookie有效：</p>
 <p><code>ipconfig /flushdns</code>走起~</p>
 <p>不过这些IP每人都<code>各不相同</code>，假如你还不能正常访问，那请去<a href="https://www.ipaddress.com">https://www.ipaddress.com</a></p>
 <p>查询相对应GayHub ip地址，把之前hosts中的<code>替换</code>掉，就应该可以正常访问了。</p>
-]]></content><category scheme="https://raycoder.me/categories/hosts/" term="Hosts" label="Hosts"/><category scheme="https://raycoder.me/categories/github/" term="Github" label="Github"/><category scheme="https://raycoder.me/tags/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/hosts/" term="Hosts" label="Hosts"/><category scheme="https://raycoder.me/tags/%E5%8A%A0%E9%80%9F/" term="加速" label="加速"/></entry><entry><title type="text">使用CentOS 7 + Kodcloud(可道云) 搭建个人网盘</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/kodcloud-with-centos7/"/><id>https://raycoder.me/p/kodcloud-with-centos7/</id><updated>2020-04-08T08:41:49+08:00</updated><published>2020-02-14T17:10:53+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html"><![CDATA[<p><strong>网盘接二连三的倒下，*度网盘又开始限速，真不让人满意🐷。。</strong></p>
+]]></content><category scheme="https://raycoder.me/categories/hosts/" term="Hosts" label="Hosts"/><category scheme="https://raycoder.me/categories/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/hosts/" term="Hosts" label="Hosts"/><category scheme="https://raycoder.me/tags/%E5%8A%A0%E9%80%9F/" term="加速" label="加速"/></entry><entry><title type="text">使用CentOS 7 + Kodcloud(可道云) 搭建个人网盘</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/kodcloud-with-centos7/"/><id>https://raycoder.me/p/kodcloud-with-centos7/</id><updated>2020-04-08T08:41:49+08:00</updated><published>2020-02-14T17:10:53+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html"><![CDATA[<p><strong>网盘接二连三的倒下，*度网盘又开始限速，真不让人满意🐷。。</strong></p>
 <p><strong>还是自己搭建的网盘比较靠谱……😂</strong></p>……]]></summary><content type="html"><![CDATA[<p><strong>网盘接二连三的倒下，*度网盘又开始限速，真不让人满意🐷。。</strong></p>
 <p><strong>还是自己搭建的网盘比较靠谱……😂</strong></p>
 <h3 id="准备材料">准备材料</h3>
