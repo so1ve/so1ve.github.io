@@ -138,7 +138,7 @@
     },
     {
         "uri": "/p/HTML入门(二)：文本",
-        "content": "---\ntitle: \"HTML入门二：文本\"\ndate: 2020-04-08T13:19:37+08:00\ndescription: \"HTML入门学习二：文本\"\nkeywords: [\"HTML\",HTML入门\"]\ncategories: [\"HTML\",HTML入门\"]\ntags: [\"HTML\",HTML入门\"]\nslug: \"html-2\"\ncomments: true\ndraft: false\n---\n\n 写作不易，资瓷一下呗！个人博客：https://raycoder.me\n\n",
+        "content": "---\ntitle: \"HTML入门二：文本\"\ndate: 2020-04-08T13:19:37+08:00\ndescription: \"HTML入门学习二：文本\"\nkeywords: [\"HTML\",HTML入门\"]\ncategories: [\"HTML\",HTML入门\"]\ntags: [\"HTML\",HTML入门\"]\nslug: \"html-2\"\ncomments: true\ndraft: false\n---\n\n 写作不易，资瓷一下呗！个人博客：https://raycoder.me\n\n普通文本\n\n 标题\n\nHTML中的标题有六个级别：\n\nh1\\\n\n用在主标题上。\n\n h2\\\n\n用于二级标题上。\n\nh3\\\n\n以此类推……\n\n h4\\\n\nh5\\\n\n h6\\\n\nh1一级标题/h1\nh2二级标题/h2\nh3三级标题/h3\nh4四级标题/h4\nh5五级标题/h5\nh6六级标题/h6\n\n结果：\n\n段落\n\n p\\\n\n在成段的文字两端添加p起始标签和/p结束标签就构成了HTML中的段落。\n\np这是一个段落！/p\np这是另一个段落！/p\n\n结果：\n\n（默认情况下，浏览器会把段落另起一行显示并保持一定距离。）\n\n粗体\n\n b\\\n\n在b起始标签与/b结束标签中的文字显示为粗体。\n\np这是一个b段落/b！/p\np这是b另一个/b段落！/p\n\n结果：\n\n斜体\n\n i\\\n\n在i起始标签与/i结束标签中的文字显示为斜体。\n\np这是一个i段落/i！/p\np这是i另一个/i段落！/p\n\n结果：\n\n上下标\n\n 上标sup\\\n\n在sup起始标签与/sup结束标签中的文字显示为上标，如2sup2/sup=2sup2/sup。\n\n下标sub\\\n\n在sub起始标签与/sub结束标签中的文字显示为上标，如Hsub2/subO=Hsub2/subO。\n\n 换行符和水平线\n\n换行符br /\\\n\n地球br /每天绕着br /太阳转。\n\n结果：\n\n当然，这个 /可以略去不写，写成br也是可以的。\n\n 水平线hr /\\\n\nRay是一个hr /大氵B\n\n结果：\n\n同理，这个 /也可以略去不写，写成hr也是可以的。\n\n语义化标记\n\n",
         "tags": []
     },
     {
