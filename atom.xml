@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><title type="text">Ray's Blog</title><subtitle type="html">夜晚再黑，也压不过雪的白。Ray,Code,Python,Git,爬虫,Hugo,MemE</subtitle><updated>2020-04-11T13:14:45+00:00</updated><id>https://raycoder.me/</id><link rel="alternate" type="text/html" href="https://raycoder.me/"/><link rel="self" type="application/atom+xml" href="https://raycoder.me/atom.xml"/><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><generator uri="https://gohugo.io/" version="0.68.3">Hugo</generator><entry><title type="text">Travis CI自动部署Hugo博客</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/"/><id>https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/</id><updated>2020-04-10T20:00:02+08:00</updated><published>2020-04-09T13:16:30+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Travis CI自动部署Hugo博客至GitHub</summary><content type="html"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><title type="text">Ray's Blog</title><subtitle type="html">夜晚再黑，也压不过雪的白。Ray,Code,Python,Git,爬虫,Hugo,MemE</subtitle><updated>2020-04-11T14:19:34+00:00</updated><id>https://raycoder.me/</id><link rel="alternate" type="text/html" href="https://raycoder.me/"/><link rel="self" type="application/atom+xml" href="https://raycoder.me/atom.xml"/><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><generator uri="https://gohugo.io/" version="0.68.3">Hugo</generator><entry><title type="text">Travis CI自动部署Hugo博客</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/"/><id>https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/</id><updated>2020-04-10T20:00:02+08:00</updated><published>2020-04-09T13:16:30+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Travis CI自动部署Hugo博客至GitHub</summary><content type="html"><![CDATA[<blockquote>
 <p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 </blockquote>
 <p>近日发现GitHub Pages国内访问速度变快，准备换回去。奈何我又想保留GitHub上的源码，Hugo又没有<code>hexo d</code>这样的一键部署操作，只能使用Travis CI（<code>Continuous Integration</code>，持续集成）来实现。</p>
@@ -185,9 +185,10 @@
 <p>真香，可以抛弃Netlify了QQ</p>
 <hr>
 <p>而且取消了对百度Robots.txt的限制。</p>
-]]></content><category scheme="https://raycoder.me/categories/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/pages/" term="Pages" label="Pages"/></entry><entry><title type="text">HTML入门二：文本</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/html-2/"/><id>https://raycoder.me/p/html-2/</id><updated>2020-04-11T13:26:59+08:00</updated><published>2020-04-08T13:19:37+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">HTML入门学习二：文本</summary><content type="html"><![CDATA[<blockquote>
+]]></content><category scheme="https://raycoder.me/categories/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/github/" term="GitHub" label="GitHub"/><category scheme="https://raycoder.me/tags/pages/" term="Pages" label="Pages"/></entry><entry><title type="text">HTML入门二：文本</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/html-2/"/><id>https://raycoder.me/p/html-2/</id><updated>2020-04-11T16:05:01+08:00</updated><published>2020-04-08T13:19:37+08:00</published><author><name>Ray</name><uri>https://raycoder.me/</uri><email>ray@raycoder.me</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">HTML入门学习二：文本</summary><content type="html"><![CDATA[<blockquote>
 <p><strong>写作不易，资瓷一下呗！个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 </blockquote>
+<h2 id="普通文本">普通文本</h2>
 <h3 id="标题">标题</h3>
 <p>HTML中的标题有六个级别：</p>
 <h4 id="h1">&lt;h1&gt;</h4>
@@ -217,7 +218,85 @@
 <span class="p">&lt;</span><span class="nt">h6</span><span class="p">&gt;</span>六级标题<span class="p">&lt;/</span><span class="nt">h6</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>效果</p>
+</div><p>结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411132736.png" alt=""></p>
+<h3 id="段落">段落</h3>
+<h4 id="p">&lt;p&gt;</h4>
+<p>在成段的文字两端添加<code>&lt;p&gt;</code>起始标签和<code>&lt;/p&gt;</code>结束标签就构成了HTML中的段落。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这是一个段落！<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这是另一个段落！<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411133205.png" alt=""></p>
+<p>（默认情况下，浏览器会把段落另起一行显示并保持一定距离。）</p>
+<h3 id="粗体">粗体</h3>
+<h4 id="b">&lt;b&gt;</h4>
+<p>在<code>&lt;b&gt;</code>起始标签与<code>&lt;/b&gt;</code>结束标签中的文字显示为粗体。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这是一个<span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>段落<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>！<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这是<span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>另一个<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>段落！<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411133919.png" alt=""></p>
+<h3 id="斜体">斜体</h3>
+<h4 id="i">&lt;i&gt;</h4>
+<p>在<code>&lt;i&gt;</code>起始标签与<code>&lt;/i&gt;</code>结束标签中的文字显示为斜体。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这是一个<span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>段落<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>！<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这是<span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>另一个<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>段落！<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411134209.png" alt=""></p>
+<h3 id="上下标">上下标</h3>
+<h4 id="上标sup">上标&lt;sup&gt;</h4>
+<p>在<code>&lt;sup&gt;</code>起始标签与<code>&lt;/sup&gt;</code>结束标签中的文字显示为上标，如<code>2&lt;sup&gt;2&lt;/sup&gt;</code>=2<sup>2</sup>。</p>
+<h4 id="下标sub">下标&lt;sub&gt;</h4>
+<p>在<code>&lt;sub&gt;</code>起始标签与<code>&lt;/sub&gt;</code>结束标签中的文字显示为上标，如<code>H&lt;sub&gt;2&lt;/sub&gt;O</code>=H<sub>2</sub>O。</p>
+<h3 id="换行符和水平线">换行符和水平线</h3>
+<h4 id="换行符br-">换行符&lt;br /&gt;</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">地球<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>每天绕着<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>太阳转。
+</code></pre></td></tr></table>
+</div>
+</div><p>结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411134916.png" alt=""></p>
+<p>当然，这个<code> /</code>可以略去不写，写成<code>&lt;br&gt;</code>也是可以的。</p>
+<h3 id="水平线hr-">水平线&lt;hr /&gt;</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">Ray是一个<span class="p">&lt;</span><span class="nt">hr</span> <span class="p">/&gt;</span>大氵B
+</code></pre></td></tr></table>
+</div>
+</div><p>结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411135247.png" alt=""></p>
+<p>同理，这个<code> /</code>也可以略去不写，写成<code>&lt;hr&gt;</code>也是可以的。</p>
+<h2 id="语义化标记">语义化标记</h2>
 ]]></content><category scheme="https://raycoder.me/categories/html/" term="HTML" label="HTML"/><category scheme="https://raycoder.me/categories/html%E5%85%A5%E9%97%A8/" term="HTML入门" label="HTML入门"/><category scheme="https://raycoder.me/tags/html/" term="HTML" label="HTML"/><category scheme="https://raycoder.me/tags/html%E5%85%A5%E9%97%A8/" term="HTML入门" label="HTML入门"/></entry><entry><title type="text">日本小哥的CPU料理！</title><link rel="alternate" type="text/html" href="https://raycoder.me/p/cooking-with-cpu/"/><id>https://raycoder.me/p/cooking-with-cpu/</id><updated>2020-04-09T17:41:16+08:00</updated><published>2020-04-08T09:55:44+08:00</published><summary type="html">……</summary><content type="html"><![CDATA[<div id="player"></div>
 <script type="text/javascript" src="https://player.dogecloud.com/js/loader"></script>
 <script type="text/javascript">
