@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": ["www.raycoder.me", "ffraycodergithubio.ffraycoder.now.sh", "raycoder.me"],
+  "redirects": [
+    { "source": "/p/how-to-read-google-currectly/", "destination": "/p/how-to-read-google-correctly/" },
+	{ "source": "/p/how-to-read-google-currectly", "destination": "/p/how-to-read-google-correctly/" },
+	{ "source": "/p/7040.html", "destination": "/p/active-office365/" },
+	{ "source": "/p/f88e.html", "destination": "/p/cloudmusic-spider-artlist/" }
+  ],
+  "regions": ["hkg1", "tpe1"],
+  "routes": [
+    {"handle": "filesystem"},
+	{"src": "/(.*)", "status": 404,	"dest": "/404.html"}
+  ]
+}
