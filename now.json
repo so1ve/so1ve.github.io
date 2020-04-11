@@ -7,7 +7,6 @@
 	{ "source": "/p/7040.html", "destination": "/p/active-office365/" },
 	{ "source": "/p/f88e.html", "destination": "/p/cloudmusic-spider-artlist/" }
   ],
-  "regions": ["hkg1", "tpe1"],
   "routes": [
     {"handle": "filesystem"},
 	{"src": "/(.*)", "status": 404,	"dest": "/404.html"}
