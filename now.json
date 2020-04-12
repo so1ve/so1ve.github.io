@@ -3,6 +3,6 @@
   "routes": [
     { "handle": "filesystem" },
     { "src": "/p/f88e.html", "dest": "/p/cloudmusic-spider-artlist/" },
-	{ "src": "/p/f88e.html", "dest": "/p/白嫖office365/" 
+	{ "src": "/p/f88e.html", "dest": "/p/白嫖office365/" }
   ]
 }
