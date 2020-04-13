@@ -262,7 +262,14 @@
     "date": "2020.4.11",
     "src": "https://cdn.jsdelivr.net/gh/Mengxin001/CDN/Head.jpg",
     "name": "萌新的BLOG",
-    "desc": "Live your life with passion!.",
+    "desc": "Live your life with passion!",
     "url": "https://www.moex.club"
+  },
+  {
+    "date": "2020.4.13",
+    "src": "http://hexo.yuanjh.cn/images_out/logo.jpeg",
+    "name": "闻鸡起舞",
+    "desc": "逝者如斯夫，不舍昼夜(IT,Java,Python,量化,机器学习)",
+    "url": "https://hexo.yuanjh.cn"
   }
 ]
