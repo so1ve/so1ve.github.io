@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ray's Blog</title><link>https://raycoder.me/</link><description>夜晚再黑，也压不过雪的白。Ray,Code,Python,Git,爬虫,Hugo,MemE</description><generator>Hugo 0.68.3 https://gohugo.io/</generator><language>zh-CN</language><managingEditor>ray@raycoder.me (Ray)</managingEditor><webMaster>ray@raycoder.me (Ray)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Tue, 14 Apr 2020 01:20:02 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://raycoder.me/rss.xml"/><item><title>HTML入门(一)：结构</title><link>https://raycoder.me/p/html-1/</link><guid isPermaLink="true">https://raycoder.me/p/html-1/</guid><pubDate>Tue, 07 Apr 2020 08:51:02 +0800</pubDate><author>ray@raycoder.me (Ray)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ray's Blog</title><link>https://raycoder.me/</link><description>夜晚再黑，也压不过雪的白。Ray,Code,Python,Git,爬虫,Hugo,MemE</description><generator>Hugo 0.68.3 https://gohugo.io/</generator><language>zh-CN</language><managingEditor>ray@raycoder.me (Ray)</managingEditor><webMaster>ray@raycoder.me (Ray)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Tue, 14 Apr 2020 04:18:26 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://raycoder.me/rss.xml"/><item><title>HTML入门(一)：结构</title><link>https://raycoder.me/p/html-1/</link><guid isPermaLink="true">https://raycoder.me/p/html-1/</guid><pubDate>Tue, 07 Apr 2020 08:51:02 +0800</pubDate><author>ray@raycoder.me (Ray)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description><![CDATA[<blockquote>
 <p><strong>写作不易，资瓷一下呗！个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 <p><strong>本文首发于<a href="https://raycoder.me/p/html-1/">Ray's Blog</a></strong></p>
 </blockquote>
@@ -206,6 +206,94 @@
 <p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411135247.png" alt=""></p>
 <p>同理，这个<code> /</code>也可以略去不写，写成<code>&lt;hr&gt;</code>也是可以的。</p>
 <h2 id="语义化标记">语义化标记</h2>
+<p>和上面的文本标签不同的是，语义化标记基本上是展现给搜索引擎而不是用户的。</p>
+<h3 id="strong">&lt;strong&gt;</h3>
+<p><code>&lt;strong&gt;</code>标签表示其中内容很重要——一般显示为粗体。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>注意:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>不适合工作时观看!
+</code></pre></td></tr></table>
+</div>
+</div><p>结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414115950.png" alt=""></p>
+<h3 id="em">&lt;em&gt;</h3>
+<p><code>&lt;em&gt;</code>标签起强调作用——一般显示为斜体。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>我 <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>觉得<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> 我非常氵<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>我觉得 <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>我<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> 非常氵<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414120553.png" alt=""></p>
+<h3 id="引用">引用</h3>
+<h4 id="blockquote">&lt;blockquote&gt;</h4>
+<p><code>&lt;blockquote&gt;</code>会自动缩进，但是最好使用CSS完成其他文本的缩进。<code>cite</code>特性可以表明这是从哪里引用的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">blockquote</span> <span class="na">cite</span><span class="o">=</span><span class="s">&#34;http://en.wikipedia.org/wiki/Winnie-the-Pooh&#34;</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>您是否曾经停下来思考，而忘记重新开始？<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">blockquote</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414121204.png" alt=""></p>
+<h4 id="q">&lt;q&gt;</h4>
+<p><code>&lt;q&gt;</code>用于表明在段落中的较短引用。它一般会在引用文本两边加上引号。这些引号是无法被选中的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Van曾说，<span class="p">&lt;</span><span class="nt">q</span><span class="p">&gt;</span>ASS♂WE♂CAN！<span class="p">&lt;/</span><span class="nt">q</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414121134.png" alt=""></p>
+<h3 id="内容的修改">内容的修改</h3>
+<h4 id="ins与del">&lt;ins&gt;与&lt;del&gt;</h4>
+<p><code>&lt;ins&gt;</code>标签为插入的内容，<code>&lt;del&gt;</code>标签为删去的内容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这真是一个 <span class="p">&lt;</span><span class="nt">del</span><span class="p">&gt;</span>最差<span class="p">&lt;/</span><span class="nt">del</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">ins</span><span class="p">&gt;</span>最好<span class="p">&lt;/</span><span class="nt">ins</span><span class="p">&gt;</span> 的点子了！<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414121349.png" alt=""></p>
+<h4 id="s">&lt;s&gt;</h4>
+<p><code>&lt;s&gt;</code>标签表示不准确但不应删去的内容。</p>
+<p>看着像是<code>&lt;del&gt;</code>标签，但它们是不同的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>北京尻鸭：<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">s</span><span class="p">&gt;</span>过去￥100<span class="p">&lt;/</span><span class="nt">s</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>现在只要￥998！<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414121618.png" alt=""></p>
+<hr>
+<p>呼，终于又肝完一篇了，氵~</p>
 ]]></description><category domain="https://raycoder.me/categories/html/">HTML</category><category domain="https://raycoder.me/categories/html%E5%85%A5%E9%97%A8/">HTML入门</category><category domain="https://raycoder.me/tags/html/">HTML</category><category domain="https://raycoder.me/tags/html%E5%85%A5%E9%97%A8/">HTML入门</category></item><item><title>从零开始写一个音乐爬虫-1-网易云音乐：批量获取歌单音乐下载链接</title><link>https://raycoder.me/p/cloudmusic-spider-artlist/</link><guid isPermaLink="true">https://raycoder.me/p/cloudmusic-spider-artlist/</guid><pubDate>Sat, 22 Feb 2020 15:59:37 +0800</pubDate><author>ray@raycoder.me (Ray)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description><![CDATA[<p><strong>本文将会详细的写从零开始制作网易云音乐爬虫的过程，可以下载网易云音乐音乐付费歌曲，使用Python3开发。</strong></p>
 <blockquote>
 <p><strong>声明：本文从前端入手，再获得歌曲数据。如果您不想走那么多弯路，请参考这篇文章：<a href="https://zhuanlan.zhihu.com/p/30246788">https://zhuanlan.zhihu.com/p/30246788</a>和这篇文章：<a href="https://www.shangyexinzhi.com/article/details/id-297404">https://www.shangyexinzhi.com/article/details/id-297404</a></strong></p>
@@ -1754,7 +1842,50 @@ P.S.我发现貌似随机Cookie有效：</p>
 <a href="/post/CUlLXMwcx/" class="LinkCard">从零开始写一个音乐爬虫-2-网易云音乐：下载音乐文件</a>
 <a href="/post/lOWHTeAPC/" class="LinkCard">从零开始写一个音乐爬虫-3-酷狗音乐</a>
 代码之后放上来。</p>
-]]></description><category domain="https://raycoder.me/categories/python/">Python</category><category domain="https://raycoder.me/categories/%E7%88%AC%E8%99%AB/">爬虫</category><category domain="https://raycoder.me/tags/python/">Python</category><category domain="https://raycoder.me/tags/%E7%88%AC%E8%99%AB/">爬虫</category><category domain="https://raycoder.me/tags/qq%E9%9F%B3%E4%B9%90/">QQ音乐</category><category domain="https://raycoder.me/tags/%E7%A6%8F%E5%88%A9/">福利</category><category domain="https://raycoder.me/tags/%E7%A0%B4%E8%A7%A3/">破解</category><category domain="https://raycoder.me/tags/%E9%9F%B3%E4%B9%90/">音乐</category><category domain="https://raycoder.me/tags/%E4%BC%9A%E5%91%98/">会员</category><category domain="https://raycoder.me/tags/python%E8%BF%9B%E9%98%B6/">Python进阶</category></item><item><title>About Valine评论</title><link>https://raycoder.me/p/about-valine/</link><guid isPermaLink="true">https://raycoder.me/p/about-valine/</guid><pubDate>Sun, 12 Apr 2020 14:56:23 +0800</pubDate><author>ray@raycoder.me (Ray)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>噗，抱歉，目前我更换了原版Valine，评论都不见了QwQ，我会尽力把它们迁移过来的！！&lt;/p></description><category domain="https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/">博客</category><category domain="https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/">博客</category></item><item><title>Travis CI自动部署Hugo博客</title><link>https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/</link><guid isPermaLink="true">https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/</guid><pubDate>Thu, 09 Apr 2020 13:16:30 +0800</pubDate><author>ray@raycoder.me (Ray)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description><![CDATA[<blockquote>
+]]></description><category domain="https://raycoder.me/categories/python/">Python</category><category domain="https://raycoder.me/categories/%E7%88%AC%E8%99%AB/">爬虫</category><category domain="https://raycoder.me/tags/python/">Python</category><category domain="https://raycoder.me/tags/%E7%88%AC%E8%99%AB/">爬虫</category><category domain="https://raycoder.me/tags/qq%E9%9F%B3%E4%B9%90/">QQ音乐</category><category domain="https://raycoder.me/tags/%E7%A6%8F%E5%88%A9/">福利</category><category domain="https://raycoder.me/tags/%E7%A0%B4%E8%A7%A3/">破解</category><category domain="https://raycoder.me/tags/%E9%9F%B3%E4%B9%90/">音乐</category><category domain="https://raycoder.me/tags/%E4%BC%9A%E5%91%98/">会员</category><category domain="https://raycoder.me/tags/python%E8%BF%9B%E9%98%B6/">Python进阶</category></item><item><title>网站SEO优化：1</title><link>https://raycoder.me/p/seo-1/</link><guid isPermaLink="true">https://raycoder.me/p/seo-1/</guid><pubDate>Tue, 14 Apr 2020 11:26:48 +0800</pubDate><author>ray@raycoder.me (Ray)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description><![CDATA[<blockquote>
+<p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
+</blockquote>
+<h3 id="what-is-seo">What is SEO？</h3>
+<p>SEO（Search Engine Optimization），即搜索引擎优化。</p>
+<p>一句<del>废</del>话，就是为了让搜索引擎更了解你的网站，从而达到更多收录的效果。</p>
+<h3 id="域名注册时长">域名注册时长</h3>
+<p>域名注册时长是搜索引擎很重要的指标之一。本站（<a href="https://raycoder.me">https://raycoder.me</a>）注册了将近3个月，目前百度收录17条。以<a href="https://imaegoo.com">iMaegoo's Blog</a>为例，域名注册了两年的时长，收录量有61条。存活时间不长的域名在百度索引里不会占有太大的比重。</p>
+<h3 id="善用站长平台">善用站长平台</h3>
+<p>百度、搜狗、Google等搜索引擎都有自己的站长平台。</p>
+<ul>
+<li>百度：<a href="https://ziyuan.baidu.com">https://ziyuan.baidu.com</a></li>
+<li>搜狗：<a href="https://zhanzhang.sogou.com">https://zhanzhang.sogou.com</a></li>
+<li>谷歌：<a href="https://search.google.com/search-console/welcome?hl=zh-CN">https://search.google.com/search-console/welcome?hl=zh-CN</a></li>
+</ul>
+<p>先验证网站主域后（建议www），提交Sitemap，插入自动提交代码，一样的套路。</p>
+<h3 id="html结构">HTML结构</h3>
+<p>对于一个新站，搜索引擎不会使用过多资源来抓取。假如搜索引擎抓到了你的网页<heimu>有生之年</heimu>，也并不会去分析里面的内容。在<code>&lt;head&gt;</code>标签中添加一些<code>&lt;meta&gt;</code>标签有助于搜索引擎了解你的网站。</p>
+<p>一些常用<code>&lt;meta&gt;</code>标签：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;keywords&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Ray, Git&#34;</span><span class="p">&gt;</span><span class="c">&lt;!--关键字，英文逗号分割--&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;description&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Git教程……&#34;</span><span class="p">&gt;</span><span class="c">&lt;!--描述--&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;author&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Ray, ray@raycoder.me&#34;</span><span class="p">&gt;</span><span class="c">&lt;!--作者--&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;generator&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Hugo 0.68.3&#34;</span><span class="p">&gt;</span><span class="c">&lt;!--网页生成器--&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;copyright&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Ray&#34;</span><span class="p">&gt;</span><span class="c">&lt;!--Copyright--&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;robots&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;index,follow&#34;</span><span class="p">&gt;</span><span class="c">&lt;!--Robots--&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="多加网站的友链">多加网站的友链</h3>
+<p>只要对方没有设置友链<code>&lt;a&gt;</code>标签<code>nofollow</code>，那么搜索引擎就会从友链页面爬到你的网站去。多加一点收录多的网站友链总是没错的~</p>
+<h3 id="主题明确">主题明确</h3>
+<p>明确的网站类型有助于搜索引擎把你的网站分类，从而达到<code>SEO</code>的效果。</p>
+<hr>
+<p>OJBK，从网上抄了点东西，又氵了一篇文章🐢</p>
+]]></description><category domain="https://raycoder.me/categories/seo/">SEO</category><category domain="https://raycoder.me/tags/seo/">SEO</category><category domain="https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/">博客</category></item><item><title>About Valine评论</title><link>https://raycoder.me/p/about-valine/</link><guid isPermaLink="true">https://raycoder.me/p/about-valine/</guid><pubDate>Sun, 12 Apr 2020 14:56:23 +0800</pubDate><author>ray@raycoder.me (Ray)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>噗，抱歉，目前我更换了原版Valine，评论都不见了QwQ，我会尽力把它们迁移过来的！！&lt;/p></description><category domain="https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/">博客</category><category domain="https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/">博客</category></item><item><title>Travis CI自动部署Hugo博客</title><link>https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/</link><guid isPermaLink="true">https://raycoder.me/p/travis-ci-automatically-deploys-hugo-blog/</guid><pubDate>Thu, 09 Apr 2020 13:16:30 +0800</pubDate><author>ray@raycoder.me (Ray)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description><![CDATA[<blockquote>
 <p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 </blockquote>
 <p>近日发现GitHub Pages国内访问速度变快，准备换回去。奈何我又想保留GitHub上的源码，Hugo又没有<code>hexo d</code>这样的一键部署操作，只能使用Travis CI（<code>Continuous Integration</code>，持续集成）来实现。</p>
