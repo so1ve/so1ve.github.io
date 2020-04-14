@@ -18,6 +18,11 @@
         "url": "/categories/python学习笔记/",
         "class": "is-warning"
     },
+	{
+        "tag": "SEO",
+        "url": "/tags/seo/",
+        "class": "is-success"
+    },
     {
         "tag": "更多标签",
         "url": "/tags/",
