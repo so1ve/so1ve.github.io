@@ -62,7 +62,7 @@ paginate = 15
         name = "归档"
         weight = 1
     [[menu.main]]
-        url = "/writes/"
+        url = "https://mirror.raycoder.me/"
         name = "记录"
         weight = 2
     [[menu.main]]
