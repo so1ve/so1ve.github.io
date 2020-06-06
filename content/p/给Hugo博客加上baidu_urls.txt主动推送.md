@@ -5,6 +5,7 @@ draft: false
 keywords: ["Hugo","Baidu"]
 categories: ["SEO"]
 tags: ["百度","SEO"]
+slug: "hugo-baidu-urls"
 categoryLink: "/"
 toc: true
 comments: true

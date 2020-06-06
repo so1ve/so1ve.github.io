@@ -9,44 +9,51 @@ toc: false
 comments: true
 ---
 
-### 一只在校学生，一定是小学生（大嘘）~~熟练掌握~~小懂Python，正在学习`JavaScript`、`Vue.js`。
+<style>
+    .heimu {
+        background: #000;
+        color: #000;
+        transition: linear 0.2s;
+    }
+    .heimu:hover {
+        color: #fff;
+    }
+</style>
 
-（不瞒你们说本人~~芳龄~~年级初三）
 
----
+
+嗨~欢迎来到Ray的小破站鸭！
+
+### 关于Ray的一些信息：
+
+> **14**岁，初三苟，一名普普通通的~~开发者~~。渣文笔，爱好折腾，爱好音乐，<span class="heimu">非常沙雕，抄袭抄袭</span>……
 
 ### 如何捕捉博主？
 
-<div class="official-links">
-    <a href="mailto:ray@raycoder.me"><i class="iconfont icon-youjian"></i></a>
-    <a href="tencent://message/?uin=1215926530&Site=Sambow&Menu=yes"><i class="iconfont icon-qq"></i></a>
-    <a href="https://music.163.com/#/user/home?id=582913291"><i class="iconfont icon-musiccloud"></i></a>
-    <a href="https://github.com/FFRaycoder"><i class="iconfont icon-git"></i></a>
-    <a href="https://raycodr.coding.net"><i class="iconfont icon-coding"></i></a>
-    <a href="https://gitee.com/raycodr"><i class="iconfont icon-gitee"></i></a>
-    <a href="https://blog.csdn.net/qq_39299082e"><i class="iconfont icon-csdn"></i></a>
-    <a href="https://www.jianshu.com/u/937d4e8a3ab3"><i class="iconfont icon-jianshu"></i></a>
-    <a href="https://www.cnblogs.com/FFRaycoder"><i class="iconfont icon-cnblogs"></i></a>
-    <a href="https://space.bilibili.com/147858689"><i class="iconfont icon-bilibili"></i></a>
-</div>
-
-当然我不经常更新其他平台，毕竟自己买了域名也要用上哈哈
-
-自画像：
-
+```js
+var contact = {
+    "QQ": 1215926530,
+    "GitHub": function () {
+        window.open('https://github.com/FFRaycoder');
+    },
+    "E-Mail": () => {
+        window.open('mailto:ray@raycoder.me');
+    },
+    "Others": {
+        "Bilibili-UID": 147858689,
+        "CloudMusic": "https://music.163.com/#/user/home?id=582913291",
+        "RSS": "/rss.xml",
+        "ATOM": "/atom/xml"
+    }
+}
 ```
-   　    　▃▆█▇▄▖
-　 　 　 ▟◤ ▖　　◥█▎
-　   ◢◤　  ▐　　　 　▐▉
-　 ▗◤　　　▂　▗▖　　▕█▎
-　◤　▗▅▖◥▄　▀◣　 　█▊
-▐　▕▎◥▖◣◤　　　◢██
-█◣　◥▅█▀　　　　▐██◤
- ▐█▙▂　　 　 ◢██◤
-  ◥██◣　◢▄◤
-```
+
+### 氵的仓库：
 
 <div class="github-card" data-github="FFRaycoder" data-width="400" data-height="317" data-theme="medium"></div>
 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 
-害，卑微，这些仓库全是氵的
+![](https://ghchart.rshah.org/FFRaycoder)
+
+- [hugo-theme-tony](https://github.com/ThemeTony/hugo-theme-tony) - An Elegant Hugo Theme Based on WordPress Theme Tony ✌️ | 一个简洁强大的 Hugo 博客主题. [HTony.js.org](https://htony.js.org)
+- [营销号生成器](https://github.com/FFRaycoder/yingxiaohao) - 沙 雕 的 快 乐 一 开 口 就 老 营 销 号 了
