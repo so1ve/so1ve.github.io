@@ -26,6 +26,8 @@ buyButtonText: ""
 
 嗯，我先来给大家分析一下`hexo`和`hugo`的工作机制。上图~~，淦它就完了~~
 
+
+
 ![](https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200607142035.svg)
 
 就是这样。
