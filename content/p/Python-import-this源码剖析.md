@@ -22,6 +22,8 @@ buyButtonText: ""
 
 众所周知，Python有一个`import this`的彩蛋：
 
+<!--more-->
+
 ![](https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200729200602.png)
 
 但是，这个彩蛋的源代码在哪里呢🤔
