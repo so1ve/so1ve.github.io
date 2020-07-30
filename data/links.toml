@@ -261,3 +261,9 @@
     image = "https://static.studytime.xin/hexo/img/logo.jpg"
     link = "https://studytime.xin"
     bio = "白程序员的自习室，在这里有程序员的故事和技术，分享日常学习的知识和技术。"
+
+[[links]]
+    name = "杜老师说"
+    image = "https://cdn.dusays.com/logo.png"
+    link = "https://dusays.com"
+    bio = "（没有留下，喵！）"
