@@ -1,7 +1,7 @@
 ##########################################
 # 站点配置
 
-baseURL = "https://www.raycoder.me/"
+baseURL = "https://raycoder.me/"
 title = "Ray's Blog"
 languageCode = "zh-CN"
 defaultContentLanguage = "zh"
