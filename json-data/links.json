@@ -78,7 +78,7 @@
   },
   {
     "date": "2020.2.1",
-    "src": "https://www.jitwxs.cn/images/avatar.jpg",
+    "src": "https://www.jitwxs.cn/img/avatar.jpg",
     "name": "Jitwxs 的博客",
     "desc": "专注 Java 后端开发，内容涵盖 SpringBoot、并发编程、微服务、容器化、Linux 等技术分享。",
     "url": "https://www.jitwxs.cn"
@@ -95,7 +95,8 @@
     "src": "https://www.wolfdan.cn/images/avatar.jpg",
     "name": "单林敏",
     "desc": "心外无物，知行合一",
-    "url": "https://www.wolfdan.cn"
+    "url": "https://www.wolfdan.cn",
+	valid: 0
   },
   {
     "date": "2020.2.1",
@@ -267,9 +268,44 @@
   },
   {
     "date": "2020.4.13",
-    "src": "http://hexo.yuanjh.cn/images_out/logo.jpeg",
+    "src": "https://hexo.yuanjh.cn/images_out/logo.jpeg",
     "name": "闻鸡起舞",
     "desc": "逝者如斯夫，不舍昼夜(IT,Java,Python,量化,机器学习)",
     "url": "https://hexo.yuanjh.cn"
+  },
+  {
+    "date": "2020.4.23",
+    "src": "https://ditou.org/favicon.ico",
+    "name": "低头族",
+    "desc": "（没有留下，喵！）",
+    "url": "https://ditou.org"
+  },
+  {
+    "date": "2020.4.28",
+    "src": "https://cdn.jsdelivr.net/gh/hanghang0891/hanghang0891.github.io/img/avatar.jpg",
+    "name": "保温杯の小破栈",
+    "desc": "没有什么困难是战胜不了我的",
+    "url": "https://hangblog.ga"
+  },
+  {
+    "date": "2020.4.28",
+    "src": "https://cdn.jsdelivr.net/gh/Flexiston/CDN/img/avatar.png",
+    "name": "Flexiston’s Notes",
+    "desc": "长风破浪会有时，直挂云帆济沧海",
+    "url": "https://www.flexiston.com"
+  },
+  {
+    "date": "2020.4.28",
+    "src": "https://www.aomanhao.top/images/Avatar.jpg",
+    "name": "AomanHao",
+    "desc": "热爱图像处理，优化彩色世界",
+    "url": "https://www.aomanhao.top"
+  },
+  {
+    "date": "2020.4.28",
+    "src": "https://static.studytime.xin/hexo/img/logo.jpg",
+    "name": "白程序员的自习室",
+    "desc": "白程序员的自习室，在这里有程序员的故事和技术，分享日常学习的知识和技术。",
+    "url": "https://studytime.xin"
   }
 ]
