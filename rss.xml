@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ray's Blog</title><link>https://raycoder.me/</link><description>Ray's Blog-夜晚再黑，也压不过雪的白！</description><generator>Hugo 0.74.3 https://gohugo.io/</generator><language>zh-CN</language><managingEditor>ray@raycoder.me (Ray)</managingEditor><webMaster>ray@raycoder.me (Ray)</webMaster><lastBuildDate>Tue, 25 Aug 2020 01:18:19 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://raycoder.me/rss.xml"/><item><title>移植主题中</title><link>https://raycoder.me/status/porting-a-theme/</link><guid isPermaLink="true">https://raycoder.me/status/porting-a-theme/</guid><pubDate>Fri, 01 May 2020 21:55:41 +0800</pubDate><description><![CDATA[<h3 id="正在移植wp-tony主题httpsgithubcomthemetonytony_wordpress断更嘿嘿">正在移植<a href="https://github.com/ThemeTony/tony_wordpress"><code>WP-Tony</code>主题</a>，断更嘿嘿</h3>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ray's Blog</title><link>https://raycoder.me/</link><description>Ray's Blog-夜晚再黑，也压不过雪的白！</description><generator>Hugo 0.74.3 https://gohugo.io/</generator><language>zh-CN</language><managingEditor>ray@raycoder.me (Ray)</managingEditor><webMaster>ray@raycoder.me (Ray)</webMaster><lastBuildDate>Sun, 30 Aug 2020 03:27:21 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://raycoder.me/rss.xml"/><item><title>移植主题中</title><link>https://raycoder.me/status/porting-a-theme/</link><guid isPermaLink="true">https://raycoder.me/status/porting-a-theme/</guid><pubDate>Fri, 01 May 2020 21:55:41 +0800</pubDate><description><![CDATA[<h3 id="正在移植wp-tony主题httpsgithubcomthemetonytony_wordpress断更嘿嘿">正在移植<a href="https://github.com/ThemeTony/tony_wordpress"><code>WP-Tony</code>主题</a>，断更嘿嘿</h3>
 <h3 id="感兴趣的可以去原作者博客httpsouorzcom看看">感兴趣的可以去原作者博客<a href="https://ouorz.com">https://ouorz.com</a>看看。</h3>
 <p>目前已经大部分完成了！</p>
 ]]></description></item><item><title>Vue中的{ __ob__: Observer }问题解决</title><link>https://raycoder.me/p/vue-ob-observer-problem/</link><guid isPermaLink="true">https://raycoder.me/p/vue-ob-observer-problem/</guid><pubDate>Fri, 21 Aug 2020 07:47:32 +0800</pubDate><description><![CDATA[<blockquote>
@@ -80,7 +80,7 @@
 <p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 </blockquote>
 <p>众所周知，Python有一个<code>import this</code>的彩蛋：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200729200602.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200729200602.png" alt=""></p>
 <p>但是，这个彩蛋的源代码在哪里呢🤔</p>
 <p>我们来康康：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> this
@@ -267,7 +267,7 @@ d <span style="color:#f92672">=</span> {} <span style="color:#75715e"># 一个�
 &lt;<span style="color:#f92672">style</span>&gt;...&lt;/<span style="color:#f92672">style</span>&gt;
 </code></pre></div><p>如是，一个<code>input</code>的代码被分散到了许多选项中：<code>data</code>，<code>methods</code>，<code>computed</code>，<code>watch</code>，如Vue官方图：</p>
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200719190119.png" style="width:131px">
+<img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200719190119.png" style="width:131px">
 </p>
 <p>Vue官方示例如下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">useCreateFolder</span> (<span style="color:#a6e22e">openFolder</span>) {
@@ -299,7 +299,7 @@ d <span style="color:#f92672">=</span> {} <span style="color:#75715e"># 一个�
     <span style="color:#a6e22e">createFolder</span>
   }
 }
-</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200719191506.png" alt=""></p>
+</code></pre></div><p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200719191506.png" alt=""></p>
 <hr>
 <p>Q.是不是<code>Vue3</code>就不能使用选项API了？</p>
 <p>A.可以用，这是两个并存的API。</p>
@@ -309,16 +309,16 @@ d <span style="color:#f92672">=</span> {} <span style="color:#75715e"># 一个�
 <p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 </blockquote>
 <p>最近在群里看到一些小伙伴在问问题！主要是不知道怎么添加下载链接！这件事情本来就是一个简单的<code>markdown</code>超链接+<code>downloads</code>目录的事，但是咋在他们口里就这么难咧🍌</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200607141946.jpg" style="zoom:25%;" /></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200607141946.jpg" style="zoom:25%;" /></p>
 <p>嗯，我先来给大家分析一下<code>hexo</code>和<code>hugo</code>的工作机制。上图~~，淦它就完了~~</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200607142035.svg" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200607142035.svg" alt=""></p>
 <p>就是这样。</p>
 <p><code>hexo</code>可以在<code>/source</code>文件夹下新建一个<code>downloads</code>目录，<code>hugo</code>就在<code>/static</code>文件夹下新建。</p>
 <p><code>hexo</code>需要在站点配置文件里修改：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">skip_render</span>:
   - downloads/<span style="color:#75715e">**</span>
 </code></pre></div><p>然后....</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200607142409.jpg" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200607142409.jpg" alt=""></p>
 <p>完事了</p>
 <p>（又氵了一篇文章）</p>
 ]]></description><category domain="https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/">博客</category><category domain="https://raycoder.me/tags/hugo/">Hugo</category><category domain="https://raycoder.me/tags/hexo/">Hexo</category><category domain="https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/">博客</category></item><item><title>Vercel真香</title><link>https://raycoder.me/status/vercel%E7%9C%9F%E9%A6%99/</link><guid isPermaLink="true">https://raycoder.me/status/vercel%E7%9C%9F%E9%A6%99/</guid><pubDate>Sun, 24 May 2020 14:04:10 +0800</pubDate><description>&lt;p>&lt;a href="https://vercel.com">Vercel&lt;/a>真香，嘿！&lt;/p></description></item><item><title>给Hugo博客加上baiduurls.txt</title><link>https://raycoder.me/p/hugo-baidu-urls/</link><guid isPermaLink="true">https://raycoder.me/p/hugo-baidu-urls/</guid><pubDate>Sun, 24 May 2020 13:40:52 +0800</pubDate><description><![CDATA[<blockquote>
@@ -363,11 +363,11 @@ d <span style="color:#f92672">=</span> {} <span style="color:#75715e"># 一个�
 <h4 id="生成索引">生成索引</h4>
 <h5 id="algolia创建空索引">Algolia创建空索引</h5>
 <h6 id="打开algoliahttpswwwalgoliacom创建应用自取名字比如说blog注册这里便不再赘述">打开<a href="https://www.algolia.com">Algolia</a>创建应用，自取名字(比如说blog)，注册这里便不再赘述</h6>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200428105807.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200428105807.png" alt=""></p>
 <h6 id="创建索引自取名字比如说blog">创建索引，自取名字(比如说blog)</h6>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200428105843.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200428105843.png" alt=""></p>
 <h6 id="点击侧栏-api-keys记录信息application-id-search-only-api-key-admin-api-key">点击侧栏 <code>API Keys</code>，记录信息(Application ID, Search-Only API Key, Admin API Key)</h6>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200428105855.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200428105855.png" alt=""></p>
 <h5 id="本地生成algolia索引文件">本地生成Algolia索引文件</h5>
 <p>在<code>blog/layouts/_default</code>里新建<code>list.algolia.json</code>，内容如下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">{{<span style="color:#75715e">/* 生成Algolia搜索索引文件 */</span>}}
@@ -401,10 +401,10 @@ d <span style="color:#f92672">=</span> {} <span style="color:#75715e"># 一个�
 <h4 id="上传索引测试">上传索引测试</h4>
 <p>这一步是可选的，不过还是建议跟着做一下。</p>
 <p>点击侧栏 <code>Indices</code> ，点击 <code>Upload record(s)</code> 按钮上传上一步生成的 <code>algolia.json</code> 文件。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200428110248.png" alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200428110433.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200428110248.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200428110433.png" alt=""></p>
 <p>上传成功之后，我们就可以马上尝试搜索了：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200428110742.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200428110742.png" alt=""></p>
 <h4 id="自动上传">自动上传</h4>
 <p>每次写完博文都手动上传索引文件无疑是痛苦的、无意义的重复劳动。</p>
 <p>因此我们需要把上传索引文件的操作自动化，在自动部署的时候顺便完成即可。</p>
@@ -427,7 +427,7 @@ ALGOLIA_ADMIN_KEY=你的Admin API Key
 <p>另外特别注意 <code>ALGOLIA_ADMIN_KEY</code> 可以用来管理你的索引，所以尽量不要提交到公共仓库。</p>
 <h5 id="travis-ci实现">Travis CI实现</h5>
 <p>嗯，说过了尽量不要把这些推上去，所以我们可以在Travis CI里添加变量，如图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200428120209.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200428120209.png" alt=""></p>
 <p>然后把<code>.env</code>修改一下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ALGOLIA_APP_ID=${ALGOLIA_APP_ID}
 ALGOLIA_INDEX_NAME=${ALGOLIA_INDEX_NAME}
@@ -436,7 +436,7 @@ ALGOLIA_ADMIN_KEY=${ALGOLIA_ADMIN_KEY}
 </code></pre></div><p>搞定了。</p>
 <h5 id="上传索引">上传索引</h5>
 <p>你可以本地执行 <code>npm run algolia</code> 查看运行效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200428111122.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200428111122.png" alt=""></p>
 <p>可以看到我们成功添加了记录。</p>
 <p>后续就是把下面的命令加到你的部署脚本即可：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install
@@ -473,7 +473,7 @@ npm run algolia // 在hugo命令后面执行
 </code></pre></div><p>主要是添加<code>&lt;input&gt;</code> 元素，<code>&lt;li&gt;</code> 元素根据各自主题的情况确定是否添加。
 另外注意外层如果有 <code>overflow:hidden</code> 的CSS样式，可能会导致搜索结果框显示不了。😅</p>
 <p>好辣，那么我们的站内搜索就完成了！撒花~🎉🎉🎉</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200428112156.gif" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200428112156.gif" alt=""></p>
 <hr>
 <p>参考：</p>
 <ul>
@@ -547,12 +547,12 @@ npm run algolia // 在hugo命令后面执行
 <li>
 <p><code>zone</code></p>
 <p>就是<code>ZoneID</code>，打开某域名页面，然后下滑看右下角。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200423094847.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200423094847.png" alt=""></p>
 </li>
 <li>
 <p><code>token</code></p>
 <p>去API页面（点击右上角头像选择my profile，再选择api tokens，最后点击create token）新建一个token</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200423094942.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200423094942.png" alt=""></p>
 <p>我们仅需要给指定zone的analytics的Read权限，就足够了。</p>
 <p>然后点击Continue,会返回创建的token，是一串含有字符的不规则字符串。</p>
 </li>
@@ -567,7 +567,7 @@ npm run algolia // 在hugo命令后面执行
 </blockquote>
 <h3 id="先氵一点">先氵一点</h3>
 <p>GitHub由于仓库部署在国外，天朝的强大阻断了数据传输<heimu>二</heimu>，GitHub上面的项目Clone速度是真的惨不忍睹</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200423084605.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200423084605.png" alt=""></p>
 <p>当然也有人说，Gitee复制一下仓库，Clone下来再改配置不就行了吗？</p>
 <p>emmm是可以，但是Gitee也无法复制项目的Releases。</p>
 <p><heimu>艾玛真烦</heimu></p>
@@ -745,10 +745,10 @@ npm run algolia // 在hugo命令后面执行
 <p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 </blockquote>
 <p>最近在GitHub上面发现了一个很有趣的项目，名叫<a href="https://github.com/LoeiFy/Mirror"><code>Mirror</code></a>，官方Demo在这里：<a href="https://mirror.am0200.com/">https://mirror.am0200.com/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200422081818.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200422081818.png" alt=""></p>
 <p>哎哟我艹，貌似有那么一丢丢好康，但是这个release就有点过粪了吧？</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200422083906.png" alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200422083923.jpg" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200422083906.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200422083923.jpg" alt=""></p>
 <p>这个绝对是我见过最简单的博客了，使用动态路由分发视图，单页面应用。</p>
 <p>I了I了~</p>
 <p>搭建，也很简单，从<a href="https://github.com/LoeiFy/Mirror/raw/master/release/mirror.zip">这里</a>下载最新版Mirror，解压后在<code>index.html</code>里进行配置即可。</p>
@@ -764,7 +764,7 @@ npm run algolia // 在hugo命令后面执行
 <li>read: org Read org and team membership</li>
 </ul>
 <p>像这样。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200422084440.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200422084440.png" alt=""></p>
 <p>添加 token 说明，然后点击 <code>Generate token</code>，就可以获得你的 token。要记得保存。</p>
 <hr>
 <h4 id="获取hash">获取Hash</h4>
@@ -776,7 +776,7 @@ npm run algolia // 在hugo命令后面执行
 <li>打开 <a href="https://mirror.am0200.com/">Mirror</a> 网站，并打开 <code>开发者工具</code> 界面</li>
 <li>在开发者工具的 <code>console</code> tab 页面，输入 js 代码 <code>window.encrypt('你的token', '你的主域名')</code>，注意不要写协议头，<code>www</code>是敏感的。</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200422084655.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200422084655.png" alt=""></p>
 <p>得到的字符就是 <code>hash</code> 串。</p>
 <p>接下来只需要修改<code>index.html</code>即可。</p>
 <hr>
@@ -1112,12 +1112,12 @@ ho <span style="color:#f92672">is</span> mo: False
 </li>
 </ol>
 </section>]]></description><category domain="https://raycoder.me/categories/python/">Python</category><category domain="https://raycoder.me/categories/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python学习笔记</category><category domain="https://raycoder.me/categories/python%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0/">Python内建函数</category><category domain="https://raycoder.me/tags/python/">Python</category><category domain="https://raycoder.me/tags/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python学习笔记</category><category domain="https://raycoder.me/tags/python%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0/">Python内建函数</category><category domain="https://raycoder.me/tags/python%E5%85%B3%E9%94%AE%E5%AD%97/">Python关键字</category></item><item><title>记一次文章被爬</title><link>https://raycoder.me/p/article-crawled-by-spiders/</link><guid isPermaLink="true">https://raycoder.me/p/article-crawled-by-spiders/</guid><pubDate>Wed, 15 Apr 2020 18:15:24 +0800</pubDate><description><![CDATA[<p>这真的是气死我了。我一个小站都可以被爬。不说了，上图吧。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200415181823.png" alt="画圈的是恶意爬虫" title="画圈的是恶意爬虫"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200415181943.png" alt="画圈的是恶意爬虫" title="画圈的是恶意爬虫"></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200415181823.png" alt="画圈的是恶意爬虫" title="画圈的是恶意爬虫"></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200415181943.png" alt="画圈的是恶意爬虫" title="画圈的是恶意爬虫"></p>
 <p>我的文章允许您转载，但你这个没有标明作者是什么意思？</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200415182224.png" alt="" title="还手动提交，厉害了"></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200415182224.png" alt="" title="还手动提交，厉害了"></p>
 <p>不是你这个连<code>shortcode</code>都没有改也太那啥了吧？？（那时候我还不会markdown写加点）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200415184009.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200415184009.png" alt=""></p>
 <p>实在不想说话了。</p>
 <p>爬虫在百度上收录都有好几页。</p>
 <p>我只想说：转载请写明出处！</p>
@@ -1166,9 +1166,9 @@ ho <span style="color:#f92672">is</span> mo: False
 <h3 id="部署hugo">部署Hugo</h3>
 <p>（请先在你的仓库创建一个新分支，如<code>hugo</code>，再设置其为主分支）</p>
 <p>我们得先获取一个<a href="https://github.com/settings/tokens"><code>Personal access token</code></a>，用于给Travis CI访问仓库的权限。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200409132636.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200409132636.png" alt=""></p>
 <p>点击之后，只需要勾选<code>repo:status</code>、<code> repo_deployment</code>和<code>public_repo</code>三项即可，这样即使令牌被盗，也可以最大的减少损失。Note处是可选的，不需要填写，只是起分辨作用。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200409133232.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200409133232.png" alt=""></p>
 <p>生成完之后一定要保存令牌，这个令牌只会出现一次。</p>
 <p>随后让我们打开<a href="https://travis-ci.com">Travis CI官网</a>，使用GitHub登录。</p>
 <p>选择你的博客仓库。</p>
@@ -1265,7 +1265,7 @@ ho <span style="color:#f92672">is</span> mo: False
 </blockquote>
 <p>前天在逛大佬们的博客，有的大佬用的是<code>github.io</code>二级域名。然后网页挂了，交流群内一片喊声<heimu>淦</heimu>🙃</p>
 <p>昨天上午又去看了看，Pages可以正常访问了。阿，怎么感觉变快了？</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200409094422.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200409094422.png" alt=""></p>
 <p>众所周知GitHub采用的Fastly CDN，估计前天是增加国内节点去了。</p>
 <p>真香，可以抛弃Netlify了QQ</p>
 <hr>
@@ -1292,14 +1292,14 @@ ho <span style="color:#f92672">is</span> mo: False
 &lt;<span style="color:#f92672">h5</span>&gt;五级标题&lt;/<span style="color:#f92672">h5</span>&gt;
 &lt;<span style="color:#f92672">h6</span>&gt;六级标题&lt;/<span style="color:#f92672">h6</span>&gt;
 </code></pre></div><p>结果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411132736.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200411132736.png" alt=""></p>
 <h3 id="段落">段落</h3>
 <h4 id="p">&lt;p&gt;</h4>
 <p>在成段的文字两端添加<code>&lt;p&gt;</code>起始标签和<code>&lt;/p&gt;</code>结束标签就构成了HTML中的段落。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;这是一个段落！&lt;/<span style="color:#f92672">p</span>&gt;
 &lt;<span style="color:#f92672">p</span>&gt;这是另一个段落！&lt;/<span style="color:#f92672">p</span>&gt;
 </code></pre></div><p>结果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411133205.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200411133205.png" alt=""></p>
 <p>（默认情况下，浏览器会把段落另起一行显示并保持一定距离。）</p>
 <h3 id="粗体">粗体</h3>
 <h4 id="b">&lt;b&gt;</h4>
@@ -1307,14 +1307,14 @@ ho <span style="color:#f92672">is</span> mo: False
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;这是一个&lt;<span style="color:#f92672">b</span>&gt;段落&lt;/<span style="color:#f92672">b</span>&gt;！&lt;/<span style="color:#f92672">p</span>&gt;
 &lt;<span style="color:#f92672">p</span>&gt;这是&lt;<span style="color:#f92672">b</span>&gt;另一个&lt;/<span style="color:#f92672">b</span>&gt;段落！&lt;/<span style="color:#f92672">p</span>&gt;
 </code></pre></div><p>结果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411133919.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200411133919.png" alt=""></p>
 <h3 id="斜体">斜体</h3>
 <h4 id="i">&lt;i&gt;</h4>
 <p>在<code>&lt;i&gt;</code>起始标签与<code>&lt;/i&gt;</code>结束标签中的文字显示为斜体。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;这是一个&lt;<span style="color:#f92672">i</span>&gt;段落&lt;/<span style="color:#f92672">i</span>&gt;！&lt;/<span style="color:#f92672">p</span>&gt;
 &lt;<span style="color:#f92672">p</span>&gt;这是&lt;<span style="color:#f92672">i</span>&gt;另一个&lt;/<span style="color:#f92672">i</span>&gt;段落！&lt;/<span style="color:#f92672">p</span>&gt;
 </code></pre></div><p>结果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411134209.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200411134209.png" alt=""></p>
 <h3 id="上下标">上下标</h3>
 <h4 id="上标sup">上标&lt;sup&gt;</h4>
 <p>在<code>&lt;sup&gt;</code>起始标签与<code>&lt;/sup&gt;</code>结束标签中的文字显示为上标，如<code>2&lt;sup&gt;2&lt;/sup&gt;</code>=2<sup>2</sup>。</p>
@@ -1324,12 +1324,12 @@ ho <span style="color:#f92672">is</span> mo: False
 <h4 id="换行符br-">换行符&lt;br /&gt;</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">地球&lt;<span style="color:#f92672">br</span> /&gt;每天绕着&lt;<span style="color:#f92672">br</span> /&gt;太阳转。
 </code></pre></div><p>结果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411134916.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200411134916.png" alt=""></p>
 <p>当然，这个<code> /</code>可以略去不写，写成<code>&lt;br&gt;</code>也是可以的。</p>
 <h3 id="水平线hr-">水平线&lt;hr /&gt;</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">Ray是一个&lt;<span style="color:#f92672">hr</span> /&gt;大氵B
 </code></pre></div><p>结果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200411135247.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200411135247.png" alt=""></p>
 <p>同理，这个<code> /</code>也可以略去不写，写成<code>&lt;hr&gt;</code>也是可以的。</p>
 <h2 id="语义化标记">语义化标记</h2>
 <p>和上面的文本标签不同的是，语义化标记基本上是展现给搜索引擎而不是用户的。</p>
@@ -1337,13 +1337,13 @@ ho <span style="color:#f92672">is</span> mo: False
 <p><code>&lt;strong&gt;</code>标签表示其中内容很重要——一般显示为粗体。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">strong</span>&gt;注意:&lt;/<span style="color:#f92672">strong</span>&gt;不适合工作时观看!
 </code></pre></div><p>结果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414115950.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200414115950.png" alt=""></p>
 <h3 id="em">&lt;em&gt;</h3>
 <p><code>&lt;em&gt;</code>标签起强调作用——一般显示为斜体。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;我 &lt;<span style="color:#f92672">em</span>&gt;觉得&lt;/<span style="color:#f92672">em</span>&gt; 我非常氵&lt;/<span style="color:#f92672">p</span>&gt;
 &lt;<span style="color:#f92672">p</span>&gt;我觉得 &lt;<span style="color:#f92672">em</span>&gt;我&lt;/<span style="color:#f92672">em</span>&gt; 非常氵&lt;/<span style="color:#f92672">p</span>&gt;
 </code></pre></div><p>效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414120553.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200414120553.png" alt=""></p>
 <h3 id="引用">引用</h3>
 <h4 id="blockquote">&lt;blockquote&gt;</h4>
 <p><code>&lt;blockquote&gt;</code>会自动缩进，但是最好使用CSS完成其他文本的缩进。<code>cite</code>特性可以表明这是从哪里引用的。</p>
@@ -1351,18 +1351,18 @@ ho <span style="color:#f92672">is</span> mo: False
 	&lt;<span style="color:#f92672">p</span>&gt;您是否曾经停下来思考，而忘记重新开始？&lt;/<span style="color:#f92672">p</span>&gt;
 &lt;/<span style="color:#f92672">blockquote</span>&gt;
 </code></pre></div><p>效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414121204.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200414121204.png" alt=""></p>
 <h4 id="q">&lt;q&gt;</h4>
 <p><code>&lt;q&gt;</code>用于表明在段落中的较短引用。它一般会在引用文本两边加上引号。这些引号是无法被选中的。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;Van曾说，&lt;<span style="color:#f92672">q</span>&gt;ASS♂WE♂CAN！&lt;/<span style="color:#f92672">q</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
 </code></pre></div><p>效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414121134.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200414121134.png" alt=""></p>
 <h3 id="内容的修改">内容的修改</h3>
 <h4 id="ins与del">&lt;ins&gt;与&lt;del&gt;</h4>
 <p><code>&lt;ins&gt;</code>标签为插入的内容，<code>&lt;del&gt;</code>标签为删去的内容。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span>&gt;这真是一个 &lt;<span style="color:#f92672">del</span>&gt;最差&lt;/<span style="color:#f92672">del</span>&gt; &lt;<span style="color:#f92672">ins</span>&gt;最好&lt;/<span style="color:#f92672">ins</span>&gt; 的点子了！&lt;/<span style="color:#f92672">p</span>&gt;
 </code></pre></div><p>效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414121349.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200414121349.png" alt=""></p>
 <h4 id="s">&lt;s&gt;</h4>
 <p><code>&lt;s&gt;</code>标签表示不准确但不应删去的内容。</p>
 <p>看着像是<code>&lt;del&gt;</code>标签，但它们是不同的。</p>
@@ -1370,7 +1370,7 @@ ho <span style="color:#f92672">is</span> mo: False
 &lt;<span style="color:#f92672">p</span>&gt;&lt;<span style="color:#f92672">s</span>&gt;过去￥100&lt;/<span style="color:#f92672">s</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
 &lt;<span style="color:#f92672">p</span>&gt;现在只要￥998！&lt;/<span style="color:#f92672">p</span>&gt;
 </code></pre></div><p>效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200414121618.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200414121618.png" alt=""></p>
 <hr>
 <p>呼，终于又肝完一篇了，氵~</p>
 ]]></description><category domain="https://raycoder.me/categories/html/">HTML</category><category domain="https://raycoder.me/categories/html%E5%85%A5%E9%97%A8/">HTML入门</category><category domain="https://raycoder.me/tags/html/">HTML</category><category domain="https://raycoder.me/tags/html%E5%85%A5%E9%97%A8/">HTML入门</category></item><item><title>HTML入门(一)：结构</title><link>https://raycoder.me/p/html-1/</link><guid isPermaLink="true">https://raycoder.me/p/html-1/</guid><pubDate>Tue, 07 Apr 2020 08:51:02 +0800</pubDate><description><![CDATA[<blockquote>
@@ -1379,10 +1379,10 @@ ho <span style="color:#f92672">is</span> mo: False
 </blockquote>
 <h3 id="word文档的结构">Word文档的结构</h3>
 <p>任何文档中标题和子标题都反映出信息的层次性。标题后面可能跟着文档简介或是文档中最重要的信息。下面是一个Word文档示例。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200407085907.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200407085907.png" alt=""></p>
 <p>从这里我们理解到了Word文档中结构的运用对理解文档的帮助，编写网页的时候，道理是一样的。</p>
 <h3 id="html文档的结构">HTML文档的结构</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200407090301.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200407090301.png" alt=""></p>
 <h4 id="html使用元素描述结构">HTML使用元素描述结构</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;<span style="color:#75715e">&lt;!--HTML代码的开始--&gt;</span>
     &lt;<span style="color:#f92672">body</span>&gt;<span style="color:#75715e">&lt;!--与结束标签中的内容显示在浏览器主窗口中--&gt;</span>
@@ -1428,7 +1428,7 @@ ho <span style="color:#f92672">is</span> mo: False
 <p><img src="https://cdngh.raycoder.me/imgs/20200403091318.jpg" alt=""></p>
 <p>先附上一个网址。<a href="https://yt.raycoder.me">https://yt.raycoder.me</a>，这是我弄的一个YouTube代理网址。这个真的只使用了<code>Cloudflare Workers</code>进行代理，我是没有做任何其它配置的。你也可以把这当做一个cdn来用——cloudflare免费版不给你国内的节点，但是Workers有啊！一个月10万的请求数量完全够用了。（你们可能发现我的站变快了，因为我也用了）</p>
 <p>首先我们需要一个Cloudflare账号，自己注册，再把你的域名<code>NS</code>服务器换成CF给你的。0然后点击上面贴出的workers地址，点击&quot;Start Building&quot;，按照流程配置好。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200402170525.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200402170525.png" alt=""></p>
 <p>然后会跳转到你的控制台界面，点进去，选择<code>Workers</code>：</p>
 <p><img src="https://cdngh.raycoder.me/imgs/20200402170620.png" alt=""></p>
 <p>点击<code>Manage Workers</code>，你会见到一个类似于这样的页面。</p>
@@ -1728,7 +1728,7 @@ ho <span style="color:#f92672">is</span> mo: False
 <p>然后选择<code>Save and Deploy</code>。</p>
 <p>它会给你分配一个域名，你可以修改成你想要的域名。比如我的YT代理就是<code>https://youtube.&lt;马赛克&gt;.workers.dev</code>。</p>
 <p>自定义域名，先把一个子域名CNAME到分配的域名，然后选择<code>Add ruote</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200402172046.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200402172046.png" alt=""></p>
 <p>这里我想要把我的域名解析到<code>rb</code>这个Worker，我就填写<code>https://raycoder.me/*</code>，选择<code>rb</code>这个Worker，保存。</p>
 <p><img src="https://cdngh.raycoder.me/imgs/20200402172138.png" alt=""></p>
 <p>这就引申出了一个用法——拿来当作网站CDN，或者是图床CDN（无需jsDelivr）。我现在的CDN就是这个搭建的。</p>
@@ -2323,7 +2323,7 @@ add <span style="color:#f92672">=</span> <span style="color:#ae81ff">8728348608<
 </tbody>
 </table>
 <p>事实上，如果不采用后端，直接浏览器控制台输入<code>aid</code>，<code>bvid</code>也是可以的：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200331165001.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200331165001.png" alt=""></p>
 <p>附转换器：</p>
 <iframe src="/tools/bv2av/index.html" width="100%" height="400" scrolling="0" frameborder="0"><br></iframe>
 <p>顺便放上视频。</p>
@@ -2370,12 +2370,12 @@ const dp2 = new DPlayer({
 <p>是的！<a href="https://leancloud.app">Leancloud</a>，就是那个我们熟知的<code>Valine</code>数据存储，可以搭建网站！有使用<code>Valine Admin</code>的同学可能也会发现，部署的Admin实际上也是一个<em class="emphasis-point">使用JS生成的页面</em>。那么很多人可能就会想要使用Leancloud去搭建网站——怎么实现呢？（我刚刚放的链接是国际版的Leancloud，国内版的<a href="https://leancloud.cn">戳这</a>，需要实名认证。推荐国际版。）</p>
 <p>事实上，你只需要推送一个网页到一个Git仓库（GitHub、Gitee、Coding等皆可），然后使用<code>Leancloud云引擎</code>功能部署网页。<red>注意！我没有说是静态网页！Leancloud支持<code>PHP</code>！</red>也就是说，你可以把Leancloud当作一个免费的空间来搭建你的博客——当然，稳定性不敢保证，Leancloud开发版每天会强制休眠6小时。</p>
 <p>首先先创建一个应用，选择开发版~自己整罢！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200331135141.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200331135141.png" alt=""></p>
 <p>然后选择<code>&lt;你创建的应用&gt;--&gt;云引擎--&gt;设置</code>，在<code>源码部署--&gt;代码库</code>里填写你的Git仓库。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200331134820.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200331134820.png" alt=""></p>
 <p>当然，不要忘记填写Web主机域名——这个是我们之后预览网页用的！</p>
 <p>然后选择<code>部署</code>，再点击<code>Git源码部署</code>！（假如你有能力，也可以选择命令行部署，使用Webhook自动部署）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200331135315.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200331135315.png" alt=""></p>
 <p>然后，打开你填写的Web主机域名，享用吧！</p>]]></description><category domain="https://raycoder.me/categories/%E5%85%8D%E8%B4%B9%E7%A9%BA%E9%97%B4/">免费空间</category><category domain="https://raycoder.me/tags/%E5%85%8D%E8%B4%B9%E7%A9%BA%E9%97%B4/">免费空间</category><category domain="https://raycoder.me/tags/%E7%BD%91%E7%AB%99/">网站</category></item><item><title>Python中的yield关键字分析：一个Generator</title><link>https://raycoder.me/p/python-yield/</link><guid isPermaLink="true">https://raycoder.me/p/python-yield/</guid><pubDate>Fri, 27 Mar 2020 13:18:41 +0800</pubDate><description><![CDATA[<blockquote>
 <p><strong>写作不易，资瓷一下呗！个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 <p><strong>本文首发于<a href="https://raycoder.me/p/python-yield/">Ray's Blog</a></strong></p>
@@ -2607,7 +2607,7 @@ f2: <span style="color:#ae81ff">5</span>
 <li>统计：<a href="https://tongji.baidu.com">百度统计</a>/<a href="https://analytics.google.com">Google Analytics</a></li>
 </ul>
 <p>白嫖成功，废话不说开始建站！本文采用操作系统：<code>Windows 10 2004 19587.1000</code>，其他系统请举一反三，采用<code>Git BASH</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200326164618.jpg" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200326164618.jpg" alt=""></p>
 <hr>
 <h3 id="hugomeme">Hugo&amp;MemE</h3>
 <p>首先，先去下载<a href="https://github.com/gohugoio/hugo"><code>Hugo</code></a>。在你看到这篇文章之前，你可能已经阅读了许多建博客教程，也许是推荐使用<a href="https://hexo.io"><code>Hexo</code></a>，或是<a href="https://typecho.org"><code>Typecho</code></a>，也有可能是<a href="https://wordpress.org"><code>WordPress</code></a>，<a href="https://gridea.dev"><code>Gridea</code></a>，<a href="https://ghost.org"><code>Ghost</code></a>……但是！但是！为什么我要推荐一个知名度在国内都不如<a href="https://hexo.io"><code>Hexo</code></a>的网站框架呢？原因有3：</p>
@@ -2663,7 +2663,7 @@ f2: <span style="color:#ae81ff">5</span>
 <hr>
 <h3 id="源码托管至github">源码托管至GitHub</h3>
 <p>这个很简单，在GitHub上面新建一个仓库，名字随便取，然后将你的整个博客文件夹Push上去即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200326220659.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200326220659.png" alt=""></p>
 <p>看到那个大绿按钮了吧？！自己根据提示新建一个仓库！</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git init
 $ git remote add origin &lt;YOUR_REPO&gt;
@@ -2679,10 +2679,10 @@ $ git push -u origin master
 <p><strong>注意：以下两个操作仅适用于有独立域名的博主！</strong></p>
 <h3 id="网站dns解析服务免费cdn">网站DNS解析服务/免费CDN</h3>
 <p>这个很简单，只需要你在<a href="https://cloudflare.com">Cloudflare</a>中创建一个账号，然后点击这个<strong>大大的按钮</strong>即可：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200327131457.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200327131457.png" alt=""></p>
 <p>按照提示将你域名的<code>NS</code>设置为它给你提供的<code>NS</code>地址。</p>
 <p>免费CDN只需要你在添加解析时选中<code>Proxied</code>那坨云形图案就可以了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200327132301.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200327132301.png" alt=""></p>
 <hr>
 <h3 id="可选免费cdn">（可选）免费CDN</h3>
 <p><a href="https://nodecache.com">NodeCache</a>有中文界面，自己搞😏</p>
@@ -2691,7 +2691,7 @@ $ git push -u origin master
 <h3 id="统计">统计</h3>
 <h4 id="百度统计">百度统计</h4>
 <p>打开<a href="https://tongji.baidu.com/">百度统计官网</a>，登录后添加一个站点：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200329114926.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200329114926.png" alt=""></p>
 <p>然后获取代码，把它插入到<code>&lt;/head&gt;</code>标签前即可。</p>
 <p>官方提♂示：</p>
 <ol>
@@ -2798,7 +2798,7 @@ $ git push -u origin master
 
 <span style="color:#ae81ff">2</span>
 </code></pre></div><p>注意看截图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200324143731.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200324143731.png" alt=""></p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -2813,11 +2813,11 @@ $ git push -u origin master
 <p><a href="https://raycoder.me/p/hugo-auto-deploy/">Hugo-Python(伪)自动部署</a></p>
 <p>自以为很好……</p>
 <p>不过在看了<a href="https://io-oi.me/">reuixiy大佬的博客</a>后，才发现他有一个<code>Edit Me</code>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200324085718.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200324085718.png" alt=""></p>
 <p>点击后发现可以<code>Fork</code>这个<code>Markdown</code>文件来修改。</p>
 <p>不过俺们这个静态网页好像就不太行……这个脚本<heimu>有毛用！！！！</heimu></p>
 <p>果然是我太嫩了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200324085950.gif" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200324085950.gif" alt=""></p>
 <p>研究了下人家的<a href="https://github.com/reuixiy/io-oi.me">博客Repo</a></p>
 <p>没错他是直接推送一个源代码的！</p>
 <p>咱们打开<a href="https://github.com/reuixiy/io-oi.me/blob/master/netlify.toml">netlify.toml</a></p>
@@ -2891,14 +2891,14 @@ npm ERR!     /opt/buildhome/.npm/_logs/2020-03-23T23_50_59_667Z-debug.log
 <hr>
 <p>Hexo倒要比Hugo简单：Hexo的<code>node_moudles</code>会在执行Hexo命令时自动运行。实现Hexo甚至不需要修改<code>~blog/packages.json</code>。</p>
 <p>修改你的<code>Deploy Settings</code>，更改成如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200325075659.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200325075659.png" alt=""></p>
 <p>只需你推送博客源码，Netlify就会<em class="emphasis-point">自动帮你部署博客</em>！！！太贴心了吧~</p>
 <p>这样的好处是什么呢？我们都知道<code>hexo g</code>生成文件很慢，<code>hexo d</code>比你自己推送都慢🙃貌似是因为hexo要推送全部的静态文件。使用Netlify自动部署后，你只需要推送一篇新的博文，你的网站就自动帮你部署好啦~~~</p>
 <style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice-title:before{margin-right:8px;font-family:"Font Awesome 5 Free",FontAwesome;font-weight:400}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning .notice-title:before{content:'\f071'}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info .notice-title:before{content:'\f05a'}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note .notice-title:before{content:'\f06a'}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip .notice-title:before{content:'\f058'}.notice.tip{background:#e6f9e6}</style><div class="notice success" >
 <p class="first notice-title"></p><p>还有一点：如果你的网站<code>hexo g</code>出现了错误，Netlify会自动回滚到前一个版本，保持你网站的正常访问！</p></div>
 
 <p>赶快入坑~</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200325081213.gif" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200325081213.gif" alt=""></p>
 <hr>
 <p>2020/4/8更新：</p>
 <p>有兴趣的同学可以使用<a href="https://forestry.io/">Forestry CMS</a>，可以给静态博客加上个后台。自己捣鼓。</p>
@@ -3009,14 +3009,14 @@ npm ERR!     /opt/buildhome/.npm/_logs/2020-03-23T23_50_59_667Z-debug.log
 </ul>
 ]]></description><category domain="https://raycoder.me/categories/html/">HTML</category><category domain="https://raycoder.me/tags/html/">HTML</category><category domain="https://raycoder.me/tags/%E4%B8%AD%E8%BD%AC/">中转</category><category domain="https://raycoder.me/tags/js/">JS</category></item><item><title>DDOS-Guard免费CDN</title><link>https://raycoder.me/p/ddos-guard-free-cdn/</link><guid isPermaLink="true">https://raycoder.me/p/ddos-guard-free-cdn/</guid><pubDate>Thu, 19 Mar 2020 08:29:36 +0800</pubDate><description><![CDATA[<p>白嫖传送门：<a href="https://ddos-guard.net/en/store/web">https://ddos-guard.net/en/store/web</a></p>
 <p>俺们作为白嫖党选什么岂不是很清楚~</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200319083802.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200319083802.png" alt=""></p>
 <p>然后填入你的域名和回源IP地址！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200319084702.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200319084702.png" alt=""></p>
 <p>然后按照流程注册！</p>
 <p>过一会儿就可以在<a href="https://my.ddos-guard.net/cabinet">控制面板</a>看到啦！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200319084942.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200319084942.png" alt=""></p>
 <p>点击进去，就可以看到它给我们分配的IP地址。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200319085045.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200319085045.png" alt=""></p>
 <p>不过速度真的不敢恭维！（可能是我个人原因）</p>
 <p>参考资料：</p>
 <ul>
@@ -3034,14 +3034,14 @@ npm ERR!     /opt/buildhome/.npm/_logs/2020-03-23T23_50_59_667Z-debug.log
 <p>全球最强的CDN云分发服务之一</p>
 </blockquote>
 <p>新建一个桶，随便取个名。注意要选<code>Public（公众）</code>！<del>这LAG机器翻译</del></p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200319081732.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200319081732.png" alt=""></p>
 <p>创建完之后，随便上传一个文件。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200319082134.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200319082134.png" alt=""></p>
 <p>俺们就发现它给我们分配了一个<code>https://f000.backblazeb2.com</code>的域名。</p>
 <p>我们自己在<code>Cloudflare</code>挂一个域名，一定要开启CDN：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200319082633.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200319082633.png" alt=""></p>
 <p>如果你觉得域名太长，可以设置一个<code>Page Rule</code>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200319082751.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200319082751.png" alt=""></p>
 <p>不过只能<code>http</code>跳<code>https</code>，可惜了。</p>
 <p>我目前仍然使用<code>Gayhub</code>图床，放大文件使用<code>B2</code>。</p>
 <hr>
@@ -3052,7 +3052,7 @@ npm ERR!     /opt/buildhome/.npm/_logs/2020-03-23T23_50_59_667Z-debug.log
 <li><a href="https://cangshui.net/4221.html">免费对象云存储Backblaze | 沧水博客</a></li>
 </ul>
 ]]></description><category domain="https://raycoder.me/categories/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/">对象存储</category><category domain="https://raycoder.me/categories/%E7%BD%91%E7%AB%99/">网站</category><category domain="https://raycoder.me/tags/backblaze/">Backblaze</category><category domain="https://raycoder.me/tags/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/">对象存储</category><category domain="https://raycoder.me/tags/%E7%99%BD%E5%AB%96/">白嫖</category><category domain="https://raycoder.me/tags/%E7%A6%8F%E5%88%A9/">福利</category></item><item><title>Chrome崩溃的一些解决办法</title><link>https://raycoder.me/p/chrome-crashed/</link><guid isPermaLink="true">https://raycoder.me/p/chrome-crashed/</guid><pubDate>Wed, 18 Mar 2020 09:05:37 +0800</pubDate><description><![CDATA[<p>最近升级了电脑系统，打开Chrome崩溃了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200318090837.png" alt="喔唷，崩溃啦" title="喔唷，崩溃啦"></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200318090837.png" alt="喔唷，崩溃啦" title="喔唷，崩溃啦"></p>
 <p>网络上的一些解决方法：在打开的快捷方式后添加<code> --test-type --no-sandbox</code>，禁用沙盒。</p>
 <p>这样在你双击快捷方式时浏览器可以正常打开，但是如果你在开始菜单打开，还是一样会崩溃🙃。</p>
 <p>在我自己的研究中发现，正解如下：</p>
@@ -3124,17 +3124,17 @@ Traceback (most recent call last):
 </blockquote>
 <p>没错，我们国产语言木兰<del>上线</del>发布了，真好！</p>
 <p>你看这完美的图标！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316162738.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316162738.png" alt=""></p>
 <p>再看这美妙的手感！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316163330.png" /></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316163330.png" /></p>
 <p>我准备为之惊呼！</p>
 <p>等下，这个图标……</p>
 <p>这不是<code>Pyinstaller</code>打包完的图标吗？！</p>
-<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316163651.jpeg" style="width: 35%;height: 35%;"/>
+<img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316163651.jpeg" style="width: 35%;height: 35%;"/>
 <p>我们掏出<code>PyInstaller Extractor</code>（<a href="https://github.com/NeoTim/PyInstallerExtractor">https://github.com/NeoTim/PyInstallerExtractor</a>，<a href="https://sourceforge.net/projects/pyinstallerextractor/">https://sourceforge.net/projects/pyinstallerextractor/</a>）。</p>
 <p>进行解包……</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python pyinstxtractor.py ulang-0.2.2.exe
-</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316164435.png" alt=""></p>
+</code></pre></div><p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316164435.png" alt=""></p>
 <p>不愧是敢用<code>Pyinstaller</code>的语言</p>
 <p>你好歹也加个图标啊！</p>
 <p>让我们看看<code>ulang.runtime.env</code>节选</p>
@@ -3566,18 +3566,18 @@ Traceback (most recent call last):
 毕竟博主也是要上课的,QwQ。
 最近终于抽出一些时间了，研究研究QQ音乐的爬虫。
 我们随便打开一个歌单(<a href="https://y.qq.com/n/yqq/playlist/6809716883.html">https://y.qq.com/n/yqq/playlist/6809716883.html</a>)，登录自己的QQ：
-<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130255.png" alt="https://y.qq.com/n/yqq/playlist/6809716883.html" title="https://y.qq.com/n/yqq/playlist/6809716883.html">
-？QQ音乐竟然还对网页端做限制！<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130506.png" alt="">
+<img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316130255.png" alt="https://y.qq.com/n/yqq/playlist/6809716883.html" title="https://y.qq.com/n/yqq/playlist/6809716883.html">
+？QQ音乐竟然还对网页端做限制！<img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316130506.png" alt="">
 根据我多年的前(摸)端(爬)开(滚)发(打)经验，这种网站一定是通过<code>JS</code>做限制，并且在浏览器的<code>Network</code>中一定会有相关的数据。
 我们先打开一个音乐链接(<a href="https://y.qq.com/n/yqq/song/004WKx9W0E7skj.html">https://y.qq.com/n/yqq/song/004WKx9W0E7skj.html</a> ==&gt; 播放)：
-<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130739.png" alt="">
+<img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316130739.png" alt="">
 发现所有的音乐最后都指向<a href="https://y.qq.com/portal/player.html">https://y.qq.com/portal/player.html</a>这个网址。所以我们可以做如下判断：这个东西是通过传<code>Cookie</code>来播放音乐的，所以它的<code>Network</code>中绝对会有相应的<code>音乐文件</code>    。
 果不其然，里边有一个如下的链接：
 <code>https://isure.stream.qqmusic.qq.com/C400003jblv923cckE.m4a?guid=2092345306&amp;vkey=0C2C0214E13FDAA60DF4560C8CAFB591C5C8D31854F25B79A59E07FE292AFF133E2B053C4A96C190ACA1582BD0476710ECCF87F6826D15A2&amp;uin=4354&amp;fromtag=66</code>
 经过观察，发现它的格式如下：
 <code>https://isure.stream.qqmusic.qq.com/C400&lt;MID&gt;.m4a?guid=&lt;GUID&gt;&amp;vkey=&lt;VKEY&gt;&amp;uin=4354&amp;fromtag=66</code>，<code>uin</code>和<code>fromtag</code>是不变的。
 所以我们再返回歌单页，打开控制台，找到了如下文件：
-<img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316130803.png" alt="">
+<img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316130803.png" alt="">
 好的，我们通过观察，发现这是一个格式类似于如下的文件：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#960050;background-color:#1e0010">&#39;accessed_favbase&#39;:</span> <span style="color:#960050;background-color:#1e0010">1,</span>
  <span style="color:#960050;background-color:#1e0010">&#39;accessed_plaza_cache&#39;:</span> <span style="color:#960050;background-color:#1e0010">0,</span>
@@ -3915,9 +3915,9 @@ graph TD;
     获取真实下载链接-->下载音乐;
 </div>
 <p>看起来并不是非常困难，是吧？(^o^)/~</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316121330.gif" alt="">
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316121330.gif" alt="">
 经过分析，发现网易云歌单中的音乐格式如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316121355.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316121355.png" alt=""></p>
 <p>好。我们新建一个<code>CloudMusicSpider.py</code>，开始码代码：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python</span>
 <span style="color:#75715e">#-*- coding:utf8 -*-</span>
@@ -4066,9 +4066,9 @@ spider<span style="color:#f92672">=</span>CloudMusicSpider()
 ]]></description><category domain="https://raycoder.me/categories/python/">Python</category><category domain="https://raycoder.me/categories/%E7%88%AC%E8%99%AB/">爬虫</category><category domain="https://raycoder.me/tags/python/">Python</category><category domain="https://raycoder.me/tags/%E7%88%AC%E8%99%AB/">爬虫</category><category domain="https://raycoder.me/tags/%E7%A6%8F%E5%88%A9/">福利</category><category domain="https://raycoder.me/tags/%E7%BD%91%E6%98%93/">网易</category><category domain="https://raycoder.me/tags/%E7%A0%B4%E8%A7%A3/">破解</category><category domain="https://raycoder.me/tags/%E9%9F%B3%E4%B9%90/">音乐</category><category domain="https://raycoder.me/tags/%E4%BC%9A%E5%91%98/">会员</category><category domain="https://raycoder.me/tags/python%E8%BF%9B%E9%98%B6/">Python进阶</category></item><item><title>从零开始写一个音乐爬虫-3：酷狗音乐</title><link>https://raycoder.me/p/kugoumusic-spider-artlist/</link><guid isPermaLink="true">https://raycoder.me/p/kugoumusic-spider-artlist/</guid><pubDate>Tue, 18 Feb 2020 21:48:00 +0800</pubDate><description><![CDATA[<p><strong>本文将会详细的写从零开始制作酷狗音乐爬虫的过程，可以下载酷狗音乐音乐付费歌曲，使用Python3开发。</strong></p>
 <!-- more -->
 <p>随便打开一个歌单，右键检查属性发现这个<code>&lt;a&gt;</code>标签中含有<code>data</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316114956.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316114956.png" alt=""></p>
 <p>点进去播放，会发现：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316115025.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316115025.png" alt=""></p>
 <p>看来，音乐外链和这个<code>hash</code>哈希值是脱不了关系的了。</p>
 <p>事实上，酷狗音乐歌曲数据外链如下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">http://www.kugou.com/yy/index.php?r=play/getdata&amp;hash=&lt;刚才看到的哈希值&gt;
@@ -4219,13 +4219,13 @@ graph TD;
 </code></pre></div><p>Woc原来这个东西返回的是这种数据：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{<span style="color:#e6db74">&#39;status&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;err_code&#39;</span>: <span style="color:#ae81ff">30020</span>, <span style="color:#e6db74">&#39;data&#39;</span>: {<span style="color:#e6db74">&#39;SSA-CODE&#39;</span>: <span style="color:#e6db74">&#39;bj_event_ee07e35318276c48c519523c26d9f4ce&#39;</span>, <span style="color:#e6db74">&#39;SSA-HMID&#39;</span>: <span style="color:#e6db74">&#39;1&#39;</span>}}
 </code></pre></div><p>我们随便打开一个<code>hash</code>源链：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316115218.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316115218.png" alt=""></p>
 <p>也是这种情况。</p>
 <p>我们再打开播放地址<code>https://www.kugou.com/song/#hash=FE2A4AC53981BB3FAF077CCA2461401A&amp;album_id=1983482</code>：喔！它出现了一个验证码。这个东西就是罪魁祸首。</p>
 <p>验证之后再打开<code>hash源链</code>，数据就出现了。</p>
 <p>所以我们可以判断酷狗音乐这个<code>cookie</code>不止<code>kg_mid</code>一个。</p>
 <p>我们打开浏览器控制台：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200316115245.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200316115245.png" alt=""></p>
 <p>这里有恶心的<code>cookie</code>！</p>
 <p>把它们复制到程序中去。</p>
 <p>乃得：</p>
@@ -4344,7 +4344,7 @@ P.S.我发现貌似随机Cookie有效：</p>
 </code></pre></div><p>可以试试。</p>
 ]]></description><category domain="https://raycoder.me/categories/python/">Python</category><category domain="https://raycoder.me/categories/%E7%88%AC%E8%99%AB/">爬虫</category><category domain="https://raycoder.me/tags/python/">Python</category><category domain="https://raycoder.me/tags/%E7%88%AC%E8%99%AB/">爬虫</category><category domain="https://raycoder.me/tags/%E7%A6%8F%E5%88%A9/">福利</category><category domain="https://raycoder.me/tags/%E9%9F%B3%E4%B9%90/">音乐</category><category domain="https://raycoder.me/tags/%E7%A0%B4%E8%A7%A3/">破解</category><category domain="https://raycoder.me/tags/%E4%BC%9A%E5%91%98/">会员</category><category domain="https://raycoder.me/tags/python%E8%BF%9B%E9%98%B6/">Python进阶</category><category domain="https://raycoder.me/tags/%E9%85%B7%E7%8B%97/">酷狗</category></item><item><title>一些关于GitHub图像无法正常显示和访问速度慢的解决方案</title><link>https://raycoder.me/p/github-hosts/</link><guid isPermaLink="true">https://raycoder.me/p/github-hosts/</guid><pubDate>Tue, 18 Feb 2020 08:08:42 +0800</pubDate><description><![CDATA[<p><strong>今天我在访问GayHub的Issue时发现访问速度奇慢无比，加载好后也无法正常显示图片，raw.githubusercontent.com也无法进入。上网查找相关资料后终于有了相关的解决方法。</strong></p>
 <p>网上一般流传的Hosts已经不好使了，如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># GitHub Start</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># GitHub Start
 192.30.253.112 github.com
 192.30.253.118 gist.github.com
 151.101.112.133 assets-cdn.github.com
@@ -4361,7 +4361,7 @@ P.S.我发现貌似随机Cookie有效：</p>
 151.101.184.133 avatars6.githubusercontent.com
 151.101.184.133 avatars7.githubusercontent.com
 151.101.12.133 avatars8.githubusercontent.com
-<span style="color:#75715e"># GitHub End</span>
+# GitHub End
 </code></pre></div><p><code>ipconfig /flushdns</code>后无效。</p>
 <p>后来又去<a href="https://github.com/chenxuhua/issues-blog/issues/3">这里</a>翻了翻，又发现了一个好用的东西：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">140.82.113.4 github.com
@@ -4433,9 +4433,9 @@ chmod -R <span style="color:#ae81ff">777</span> kodexplorer/data/
 </blockquote>
 <p>由于QQ邮箱在2020年1月20号取消了新建域名邮箱功能，而企业邮箱注册又非常麻烦，所以我决定采用一个国外的域名邮箱提供商——<a href="https://pingly.com">Pingly</a>。</p>
 <h3 id="step-1打开pinglyhttpspinglycomsignup注册一个账号已有账号的点击登录httpspinglycomlogin">Step 1.打开<a href="https:/pingly.com/signup">Pingly</a>，注册一个账号。（已有账号的点击<a href="https://pingly.com/login">登录</a>）</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200401131540.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200401131540.png" alt=""></p>
 <h3 id="step-2登录注册完后按照系统的提示设置域名的txtcname及mx转发设置成功后点击verify可能要一段时间">Step 2.登录/注册完后按照系统的提示设置域名的TXT、CNAME及MX转发，设置成功后点击Verify（可能要一段时间）</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/FFRaycoder/cdn/imgs/20200401131541.png" alt=""></p>
+<p><img src="https://gitee.com/RACD/cdn/raw/master/imgs/20200401131541.png" alt=""></p>
 <h3 id="step-3然后打开你注册时的邮箱点击其中的链接进行账号的验证">Step 3.然后打开你注册时的邮箱，点击其中的链接进行账号的验证</h3>
 <h3 id="final好了之后所有发到你的域名邮箱的邮件都会在收件箱httpspinglycominbox出现">Final：好了，之后所有发到你的域名邮箱的邮件都会在<a href="https://pingly.com/#inbox">收件箱</a>出现！</h3>
 <p>开始使用吧！我的邮箱：<a href="mailto:ray@raycoder.me">ray@raycoder.me</a></p>
@@ -4537,6 +4537,5 @@ chmod -R <span style="color:#ae81ff">777</span> kodexplorer/data/
 <p>随便选一张图片上传（picgo也支持剪贴板上传，截图工具推荐win10的Snipaste神器！），试试看</p>
 <h2 id="超级快有木有比github快很多01秒上传而且导入到你的markdown编辑器里面也是秒识别你的图片内容而如果是github图床上传太慢不说可能还会出现下面这样识别不出来的问题"><strong><code>超级快有木有！比github快很多，0.1秒上传，而且导入到你的markdown编辑器里面也是秒识别你的图片内容，而如果是github图床上传太慢不说可能还会出现下面这样识别不出来的问题！</code></strong></h2>
 <h3 id="上传之后默认复制链接直接粘贴到你的markdown编辑器里就可以愉快的进行写作了">上传之后默认复制链接，直接粘贴到你的markdown编辑器里，就可以愉快的进行写作了！</h3>
-<p>原文：<a href="https://www.jianshu.com/p/b69950a49ae2">https://www.jianshu.com/p/b69950a49ae2</a>
-<del>（博主：我已经用上了！）</del></p>
+<p>原文：<a href="https://www.jianshu.com/p/b69950a49ae2">https://www.jianshu.com/p/b69950a49ae2</a></p>
 ]]></description><category domain="https://raycoder.me/categories/picgo/">Picgo</category><category domain="https://raycoder.me/categories/%E5%9B%BE%E5%BA%8A/">图床</category><category domain="https://raycoder.me/tags/picgo/">Picgo</category><category domain="https://raycoder.me/tags/gitee/">Gitee</category><category domain="https://raycoder.me/tags/%E5%B7%A5%E5%85%B7/">工具</category></item></channel></rss>
