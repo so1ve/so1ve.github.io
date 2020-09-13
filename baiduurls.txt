@@ -1,9 +1,13 @@
 https://raycoder.me/status/porting-a-theme/
-https://raycoder.me/shuoshuo/
 https://raycoder.me/categories/
 https://raycoder.me/p/
 https://raycoder.me/
 https://raycoder.me/tags/
+https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/
+https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/
+https://raycoder.me/tags/%E5%9B%BE%E5%BA%8A/
+https://raycoder.me/p/hey-picbed/
+https://raycoder.me/shuoshuo/
 https://raycoder.me/tags/vue/
 https://raycoder.me/categories/vue/
 https://raycoder.me/p/vue-ob-observer-problem/
@@ -21,8 +25,6 @@ https://raycoder.me/status/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/
 https://raycoder.me/tags/hexo/
 https://raycoder.me/tags/hugo/
 https://raycoder.me/p/how-hugo-and-hexo-works/
-https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/
-https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/
 https://raycoder.me/status/vercel%E7%9C%9F%E9%A6%99/
 https://raycoder.me/tags/seo/
 https://raycoder.me/categories/seo/
