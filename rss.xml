@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ray's Blog</title><link>https://raycoder.me/</link><description>Ray's Blog-夜晚再黑，也压不过雪的白！</description><generator>Hugo 0.74.3 https://gohugo.io/</generator><language>zh-CN</language><managingEditor>ray@raycoder.me (Ray)</managingEditor><webMaster>ray@raycoder.me (Ray)</webMaster><lastBuildDate>Sun, 13 Sep 2020 07:01:29 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://raycoder.me/rss.xml"/><item><title>移植主题中</title><link>https://raycoder.me/status/porting-a-theme/</link><guid isPermaLink="true">https://raycoder.me/status/porting-a-theme/</guid><pubDate>Fri, 01 May 2020 21:55:41 +0800</pubDate><description><![CDATA[<h3 id="正在移植wp-tony主题httpsgithubcomthemetonytony_wordpress断更嘿嘿">正在移植<a href="https://github.com/ThemeTony/tony_wordpress"><code>WP-Tony</code>主题</a>，断更嘿嘿</h3>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ray's Blog</title><link>https://raycoder.me/</link><description>Ray's Blog-夜晚再黑，也压不过雪的白！</description><generator>Hugo 0.74.3 https://gohugo.io/</generator><language>zh-CN</language><managingEditor>ray@raycoder.me (Ray)</managingEditor><webMaster>ray@raycoder.me (Ray)</webMaster><lastBuildDate>Sun, 13 Sep 2020 07:06:45 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://raycoder.me/rss.xml"/><item><title>移植主题中</title><link>https://raycoder.me/status/porting-a-theme/</link><guid isPermaLink="true">https://raycoder.me/status/porting-a-theme/</guid><pubDate>Fri, 01 May 2020 21:55:41 +0800</pubDate><description><![CDATA[<h3 id="正在移植wp-tony主题httpsgithubcomthemetonytony_wordpress断更嘿嘿">正在移植<a href="https://github.com/ThemeTony/tony_wordpress"><code>WP-Tony</code>主题</a>，断更嘿嘿</h3>
 <h3 id="感兴趣的可以去原作者博客httpsouorzcom看看">感兴趣的可以去原作者博客<a href="https://ouorz.com">https://ouorz.com</a>看看。</h3>
 <p>目前已经大部分完成了！</p>
 ]]></description></item><item><title>图床的千层套路</title><link>https://raycoder.me/p/hey-picbed/</link><guid isPermaLink="true">https://raycoder.me/p/hey-picbed/</guid><pubDate>Sun, 13 Sep 2020 14:57:39 +0800</pubDate><description><![CDATA[<blockquote>
@@ -158,11 +158,10 @@ post参数：file
 <p>【为了压缩方便删除了部分帧】</p>
 <h1 id="后言">后言</h1>
 <p>实际上最保险的莫过于使用各大厂商的对象存储，当然这笔钱不大好使。
-你也可以用自己的VPS搭建Chevereto，当然前提是你有VPS<a href="https://rmt.dogedoge.com/fetch/hi-c-oss/storage/5c53de1a4d14d.gif"><img src="https://rmt.dogedoge.com/fetch/hi-c-oss/storage/5c53de1a4d14d.gif" alt="img"></a></p>
-]]></description><category domain="https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/">博客</category><category domain="https://raycoder.me/tags/%E5%9B%BE%E5%BA%8A/">图床</category><category domain="https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/">博客</category></item><item><title>Vue中的{ __ob__: Observer }问题解决</title><link>https://raycoder.me/p/vue-ob-observer-problem/</link><guid isPermaLink="true">https://raycoder.me/p/vue-ob-observer-problem/</guid><pubDate>Fri, 21 Aug 2020 07:47:32 +0800</pubDate><description><![CDATA[<blockquote>
+你也可以用自己的VPS搭建Chevereto，当然前提是你有VPS<a href="https://rmt.dogedoge.com/fetch/hi-c-oss/storage/5c53de1a4d14d.gif"><img src="https://rmt.dogedoge.com/fetch/hi-c-oss/storage/5c53de1a4d14d.gif" alt="img"></a></p>]]></description><category domain="https://raycoder.me/categories/%E5%8D%9A%E5%AE%A2/">博客</category><category domain="https://raycoder.me/tags/%E5%9B%BE%E5%BA%8A/">图床</category><category domain="https://raycoder.me/tags/%E5%8D%9A%E5%AE%A2/">博客</category></item><item><title>Vue中的{ __ob__: Observer }问题解决</title><link>https://raycoder.me/p/vue-ob-observer-problem/</link><guid isPermaLink="true">https://raycoder.me/p/vue-ob-observer-problem/</guid><pubDate>Fri, 21 Aug 2020 07:47:32 +0800</pubDate><description><![CDATA[<blockquote>
 <p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 </blockquote>
-<p>在Vue的开发中，我们经常有异步获取数据的情况，在没有数据的时候使用骨架装载器占位，比如（<a href="https://github.com/FFRaycoder/leanbook/blob/master/src/views/Home.vue#L51">LeanBook</a>）：</p>
+<p>在Vue的开发中，我们经常有异步获取数据的情况，在没有数据的时候使用骨架装载器（<code>Skeleton Loader</code>，直译）占位，比如：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">template</span>&gt;
     &lt;<span style="color:#f92672">div</span>&gt;
         &lt;<span style="color:#f92672">v-row</span>&gt;
@@ -204,9 +203,10 @@ post参数：file
 </code></pre></div><p>然后通过axios之类的异步库（Vuex）来获取数据。</p>
 <p>嘶，然后，出问题了。</p>
 <p><code>Skeleton Loader</code>没显示啊！</p>
-<p>咦，啥情况？！我们来打印一下<code>books</code>：</p>
-<p><img src="https://s1.ax1x.com/2020/08/21/dYEIrF.png" alt=""></p>
-<p>好吧，原来Vue为了监视数值的变化加了一个<code>Observer</code>……</p>
+<p>我们来打印一下<code>books</code>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">books</span>)
+<span style="color:#f92672">&lt;</span> { <span style="color:#a6e22e">__ob__</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Observer</span> }
+</code></pre></div><p>好吧，原来Vue为了监视数值的变化加了一个<code>Observer</code>，这会导致判断出来“数组有值”。</p>
 <p>那么我们就有思路了，用<code>JSON.stringify</code>来监测这个数组是不是空数组。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">template</span>&gt;
     &lt;<span style="color:#f92672">div</span>&gt;
@@ -233,8 +233,7 @@ post参数：file
 <p>如果需要在其他地方取值，那么需要深拷贝。</p>
 </blockquote>
 <p>好的，加入完<code>JSON.stringify</code>之后，<code>Skeleton Loader</code>工作了！</p>
-<p>全文完</p>
-]]></description><category domain="https://raycoder.me/categories/%E5%89%8D%E7%AB%AF/">前端</category><category domain="https://raycoder.me/categories/vue/">Vue</category><category domain="https://raycoder.me/tags/%E5%89%8D%E7%AB%AF/">前端</category><category domain="https://raycoder.me/tags/vue/">Vue</category><category domain="https://raycoder.me/tags/vue%E9%97%AE%E9%A2%98/">Vue问题</category></item><item><title>Python Import This源码剖析</title><link>https://raycoder.me/p/python-import-this/</link><guid isPermaLink="true">https://raycoder.me/p/python-import-this/</guid><pubDate>Wed, 29 Jul 2020 20:00:07 +0800</pubDate><description><![CDATA[<blockquote>
+<p>全文完</p>]]></description><category domain="https://raycoder.me/categories/%E5%89%8D%E7%AB%AF/">前端</category><category domain="https://raycoder.me/categories/vue/">Vue</category><category domain="https://raycoder.me/tags/%E5%89%8D%E7%AB%AF/">前端</category><category domain="https://raycoder.me/tags/vue/">Vue</category><category domain="https://raycoder.me/tags/vue%E9%97%AE%E9%A2%98/">Vue问题</category></item><item><title>Python Import This源码剖析</title><link>https://raycoder.me/p/python-import-this/</link><guid isPermaLink="true">https://raycoder.me/p/python-import-this/</guid><pubDate>Wed, 29 Jul 2020 20:00:07 +0800</pubDate><description><![CDATA[<blockquote>
 <p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
 </blockquote>
 <p>众所周知，Python有一个<code>import this</code>的彩蛋：</p>

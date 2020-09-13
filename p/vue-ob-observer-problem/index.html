@@ -8,7 +8,7 @@ gtag('js',new Date());gtag('config','UA-157970228-1');</script><link rel=canonic
 <span class="badge badge-pill badge-danger single-badge"><a href=https://raycoder.me/categories/vue class=post-header>Vue</a></span>
 <span title=预计阅读时长 class="badge badge-pill badge-danger single-badge post-header">1 mins</span><h2 class=single-h2>Vue中的{ __ob__: Observer }问题解决</h2><div class=article-list-footer><span class=article-list-date>21-08-20</span>
 <span class=article-list-divider>/</span>
-<span class=article-list-minutes>467 Words</span></div><div class=single-line></div></div><div class=article-content><blockquote><p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href=https://raycoder.me>https://raycoder.me</a></strong></p></blockquote><p>在Vue的开发中，我们经常有异步获取数据的情况，在没有数据的时候使用骨架装载器占位，比如（<a href=https://github.com/FFRaycoder/leanbook/blob/master/src/views/Home.vue#L51>LeanBook</a>）：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>template</span>&gt;
+<span class=article-list-minutes>490 Words</span></div><div class=single-line></div></div><div class=article-content><blockquote><p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href=https://raycoder.me>https://raycoder.me</a></strong></p></blockquote><p>在Vue的开发中，我们经常有异步获取数据的情况，在没有数据的时候使用骨架装载器（<code>Skeleton Loader</code>，直译）占位，比如：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>template</span>&gt;
     &lt;<span style=color:#f92672>div</span>&gt;
         &lt;<span style=color:#f92672>v-row</span>&gt;
             &lt;<span style=color:#f92672>template</span> <span style=color:#a6e22e>v-if</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;books&#34;</span>&gt;
@@ -46,7 +46,9 @@ gtag('js',new Date());gtag('config','UA-157970228-1');</script><link rel=canonic
         }
     }
 &lt;/<span style=color:#f92672>script</span>&gt;
-</code></pre></div><p>然后通过axios之类的异步库（Vuex）来获取数据。</p><p>嘶，然后，出问题了。</p><p><code>Skeleton Loader</code>没显示啊！</p><p>咦，啥情况？！我们来打印一下<code>books</code>：</p><p><img src=https://s1.ax1x.com/2020/08/21/dYEIrF.png alt></p><p>好吧，原来Vue为了监视数值的变化加了一个<code>Observer</code>……</p><p>那么我们就有思路了，用<code>JSON.stringify</code>来监测这个数组是不是空数组。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>template</span>&gt;
+</code></pre></div><p>然后通过axios之类的异步库（Vuex）来获取数据。</p><p>嘶，然后，出问题了。</p><p><code>Skeleton Loader</code>没显示啊！</p><p>我们来打印一下<code>books</code>：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>books</span>)
+<span style=color:#f92672>&lt;</span> { <span style=color:#a6e22e>__ob__</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>Observer</span> }
+</code></pre></div><p>好吧，原来Vue为了监视数值的变化加了一个<code>Observer</code>，这会导致判断出来“数组有值”。</p><p>那么我们就有思路了，用<code>JSON.stringify</code>来监测这个数组是不是空数组。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>template</span>&gt;
     &lt;<span style=color:#f92672>div</span>&gt;
         &lt;<span style=color:#f92672>v-row</span>&gt;
             &lt;<span style=color:#f92672>template</span> <span style=color:#a6e22e>v-if</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;JSON.stringify(books) !== &#39;[]&#39;&#34;</span>&gt;
