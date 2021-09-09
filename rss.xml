@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ray's Blog</title><link>https://raycoder.me/</link><description>Ray's Blog</description><generator>Hugo 0.74.3 https://gohugo.io/</generator><language>zh-CN</language><managingEditor>nn_201312@163.com (Ray)</managingEditor><webMaster>nn_201312@163.com (Ray)</webMaster><lastBuildDate>Thu, 26 Aug 2021 12:29:01 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://raycoder.me/rss.xml"/><item><title>移植主题中</title><link>https://raycoder.me/status/porting-a-theme/</link><guid isPermaLink="true">https://raycoder.me/status/porting-a-theme/</guid><pubDate>Fri, 01 May 2020 21:55:41 +0800</pubDate><description><![CDATA[<h3 id="正在移植wp-tony主题httpsgithubcomthemetonytony_wordpress断更嘿嘿">正在移植<a href="https://github.com/ThemeTony/tony_wordpress"><code>WP-Tony</code>主题</a>，断更嘿嘿</h3>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ray's Blog</title><link>https://raycoder.me/</link><description>Ray's Blog</description><generator>Hugo 0.74.3 https://gohugo.io/</generator><language>zh-CN</language><managingEditor>nn_201312@163.com (Ray)</managingEditor><webMaster>nn_201312@163.com (Ray)</webMaster><lastBuildDate>Thu, 09 Sep 2021 15:17:12 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://raycoder.me/rss.xml"/><item><title>移植主题中</title><link>https://raycoder.me/status/porting-a-theme/</link><guid isPermaLink="true">https://raycoder.me/status/porting-a-theme/</guid><pubDate>Fri, 01 May 2020 21:55:41 +0800</pubDate><description><![CDATA[<h3 id="正在移植wp-tony主题httpsgithubcomthemetonytony_wordpress断更嘿嘿">正在移植<a href="https://github.com/ThemeTony/tony_wordpress"><code>WP-Tony</code>主题</a>，断更嘿嘿</h3>
 <h3 id="感兴趣的可以去原作者博客httpsouorzcom看看">感兴趣的可以去原作者博客<a href="https://ouorz.com">https://ouorz.com</a>看看。</h3>
 <p>目前已经大部分完成了！</p>
 ]]></description></item><item><title>正在开发博客系统</title><link>https://raycoder.me/status/working-on-a-blog-system/</link><guid isPermaLink="true">https://raycoder.me/status/working-on-a-blog-system/</guid><pubDate>Fri, 01 May 2020 21:55:41 +0800</pubDate><description>&lt;h1 id="开发中继续咕">开发中，继续咕&lt;/h1>
@@ -333,9 +333,9 @@ d <span style="color:#f92672">=</span> {} <span style="color:#75715e"># 一个�
 <h3 id="学-了-什-么活-到-老-学-到-老">学 了 什 么（活 到 老 学 到 老）</h3>
 <p>哦，<code>JS</code>、<code>Vue</code>和<code>React</code>。</p>
 <h3 id="为什么关注vue3">为什么关注<code>Vue3</code>？</h3>
-<p>不巧的是，我刚刚掌握<code>Vue2</code>的时候，<code>Vue3.0</code>RC🤢🤔</p>
+<p><code>Vue3.0</code>RC🤢🤔</p>
 <h3 id="正文开始">正文开始</h3>
-<p>（<code>Vue3</code>英文文档：<a href="https://v3.vuejs.org">https://v3.vuejs.org</a>）</p>
+<p>（<code>Vue3</code>英文文档：<a href="https://v3.vuejs.org">https://v3.vuejs.org</a>，中文：<a href="https://v3.cn.vuejs.org">https://v3.cn.vuejs.org</a>）</p>
 <h4 id="vue3重写原因">Vue3重写原因？</h4>
 <ul>
 <li>
@@ -462,7 +462,7 @@ d <span style="color:#f92672">=</span> {} <span style="color:#75715e"># 一个�
 <hr>
 <p>Q.是不是<code>Vue3</code>就不能使用选项API了？</p>
 <p>A.可以用，这是两个并存的API。</p>
-<p>推荐视频：<a href="https://www.bilibili.com/video/BV1ke411W7WB/?spm_id_from=333.788.videocard.6">https://www.bilibili.com/video/BV1ke411W7WB/?spm_id_from=333.788.videocard.6</a></p>
+<p>推荐视频：<a href="https://www.bilibili.com/video/BV1ke411W7WB/">https://www.bilibili.com/video/BV1ke411W7WB/</a></p>
 ]]></description><category domain="https://raycoder.me/categories/%E5%89%8D%E7%AB%AF/">前端</category><category domain="https://raycoder.me/categories/vue/">Vue</category><category domain="https://raycoder.me/tags/%E5%89%8D%E7%AB%AF/">前端</category><category domain="https://raycoder.me/tags/vue/">Vue</category><category domain="https://raycoder.me/tags/vue3/">Vue3</category></item><item><title>期末考试</title><link>https://raycoder.me/status/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/</link><guid isPermaLink="true">https://raycoder.me/status/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/</guid><pubDate>Mon, 06 Jul 2020 15:41:59 +0800</pubDate><description>&lt;p>哎我的天期末复习是真的难&lt;/p>
 &lt;p>真不是我不更新啊&lt;/p></description></item><item><title>Hugo与Hexo的工作机制</title><link>https://raycoder.me/p/how-hugo-and-hexo-works/</link><guid isPermaLink="true">https://raycoder.me/p/how-hugo-and-hexo-works/</guid><pubDate>Sun, 07 Jun 2020 14:14:35 +0800</pubDate><description><![CDATA[<blockquote>
 <p><strong>写作不易，资瓷一下呗！本文首发于个人博客：<a href="https://raycoder.me">https://raycoder.me</a></strong></p>
